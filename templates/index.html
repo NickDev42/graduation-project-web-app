@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+            .maindiv{
+                float: center;
+                padding: 50px;
+                width: 90%;
+                padding-top: 50px;
+                padding-left: 100px;
+                border: solid;
+                border-color: white;
+
+
+            }
+            .button{
+                border-radius: 12px;
+                background-color: #03fcec;
+                font-size: 16px;
+                font-family: "Arial Black";
+                padding: inherit;
+                transition-duration: 0.4s;
+                width: 200px;
+                height: 80px;
+
+
+            }
+            .button:hover{
+                color: #037bfc
+            }
+            .leftdiv{
+                float: left;
+                padding: 50px 50px 25px 50px;
+
+                width: 45%; display: block; align-items: center; margin: 0 auto; justify-content: center;
+            }
+            .rightdiv{
+                float: left;
+                padding: 50px 50px 90px 25px;
+
+                width: 45%; display: block; align-items: center; margin-bottom: 30px; justify-content: center;
+
+            }
+            nav {
+                margin: 0;
+            }
+            ul {
+                list-style-type: none;
+                padding: 20px;
+                margin: 0;
+                background-color: black;
+                text-align: center;
+            }
+            li {
+                display: inline;
+                font-size: 1.5em;
+                font-family: Arial;
+                line-height: 55px;
+                margin-left: 30px;
+                mergin-right: 30px;
+            }
+            li a{
+                text-decoration: none;
+                color: lightgrey;
+                padding: 20px 40px;
+            }
+            li a:hover {
+                background-color: rebeccapurple;
+                color: white;
+            }
+        </style>
+</head>
+<body style="background-color: #011230; color: white">
+    <div>
+        <h1 style="text-align: center">Home Page</h1>
+    </div>
+
+        {% block content %}
+        <div class="leftdiv">
+            <h2 style="color:white; text-align: center;">Map</h2>
+            <iframe src="/map" width="900px", height="500px"></iframe>
+        </div>
+        <div class="rightdiv" >
+            <h2 style="color:white; text-align: center;">Visualisation</h2>
+{#            {{ visualisation }}#}
+            <iframe src="/vis" width="900px", height="500px"></iframe>
+        </div>
+        {% endblock %}
+
+    <div style="float: left">
+        <br>
+    </div>
+    <div padding=10px class="row" style="background-color: #001e94; float: left; width: 100%; align-content: center; align-items: center;">
+        <nav>
+            <ul>
+{#                <button class="button"><a href="{{ url_for('fn') }}"><li>Vegetation Diversity</li></a></button>#}
+{#                <button><a href="{{ url_for('fn1') }}"><li>Tree Health</li></a></button>#}
+{#                <button><a href="/"><li>New3 Page</li></a></button>#}
+{#                <button><a href="/"><li>New4 Page</li></a></button>#}
+                <a href="{{ url_for('fn') }}"><li><button class="button">Vegetation Diversity</button></li></a>
+                <a href="{{ url_for('fn1') }}"><li><button class="button">Tree Health</button></li></a></button>
+                <a href="/"><li><button class="button">New3 Page</button></li></a>
+                <a href="/"><li><button class="button">New4 Page</button></li></a>
+            </ul>
+        </nav>
+    </div>
+    </body>
+</html>
