@@ -1,0 +1,17 @@
+{% extends "index.html" %}
+
+{% block content %}
+    <div class="leftdiv">
+            <h2 style="color:white; text-align: center;">Map</h2>
+            <iframe src="/map" width="900px", height="500px"></iframe>
+        </div>
+        <div class="rightdiv" >
+            <h2 style="color:white; text-align: center;">Thank you for submitting the form</h2>
+            <ul>
+                <li>Location: {{ session['location'] }}</li>
+                <li>Start date: {{ session['startDate'] }}</li>
+                <li>End date: {{ session['endDate'] }}</li>
+            </ul>
+        </div>
+
+{% endblock %}
