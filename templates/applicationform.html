@@ -1,0 +1,18 @@
+{% extends "index.html" %}
+
+{% block content %}
+     <div class="leftdiv">
+            <h2 style="color:white; text-align: center;">Map</h2>
+            <iframe src="/map" width="900px", height="500px"></iframe>
+        </div>
+        <div class="formdiv" >
+            <form method="post">
+                <h2 style="color:white; text-align: center;">Afforestation Form</h2>
+                {{ form.hidden_tag() }}
+                {{ form.location.label }}<br>{{ form.location }}<br>
+                {{ form.startDate.label }}<br>{{ form.startDate }}<br>
+                {{ form.endDate.label }}<br>{{ form.endDate }}<br>
+                {{ form.submit() }}
+            </form>
+        </div>
+{% endblock %}
