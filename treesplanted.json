@@ -1,0 +1,27 @@
+[
+ {
+   "Year": 2020,
+   "TreesPlanted": 4000,
+   "Afforestations": 2
+ },
+ {
+   "Year": 2021,
+   "TreesPlanted": 5000,
+   "Afforestations": 3
+ },
+ {
+   "Year": 2022,
+   "TreesPlanted": 7000,
+   "Afforestations": 4
+ },
+ {
+   "Year": 2023,
+   "TreesPlanted": 8300,
+   "Afforestations": 5
+ },
+ {
+   "Year": 2024,
+   "TreesPlanted": 10000,
+   "Afforestations": 7
+ }
+]

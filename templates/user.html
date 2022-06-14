@@ -1,0 +1,12 @@
+{% extends "index.html" %}
+
+{% block content %}
+    <div class="container">
+        <div class="col-md-offset-3 col-md-5">
+            <h2 class="page-header text-primary text-center">Customer Page</h2>
+            <h3 style="color: red" class="text-success">Welcome : {{session["organisation"]}}</h3>
+            <hr>
+            <a href="{{url_for('logout')}}" class="btn btn-primary btn-block">Logout</a>
+        </div>
+    </div>
+{% endblock %}

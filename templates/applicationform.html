@@ -1,18 +1,51 @@
 {% extends "index.html" %}
 
 {% block content %}
-     <div class="leftdiv">
+    <div class="row">
+        <div class="col">
             <h2 style="color:white; text-align: center;">Map</h2>
-            <iframe src="/map" width="900px", height="500px"></iframe>
+            <iframe src="/map" width="800px", height="500px"></iframe>
         </div>
-        <div class="formdiv" >
-            <form method="post">
-                <h2 style="color:white; text-align: center;">Afforestation Form</h2>
-                {{ form.hidden_tag() }}
-                {{ form.location.label }}<br>{{ form.location }}<br>
-                {{ form.startDate.label }}<br>{{ form.startDate }}<br>
-                {{ form.endDate.label }}<br>{{ form.endDate }}<br>
-                {{ form.submit() }}
-            </form>
+        <div class="col">
+            <div class="formdiv" >
+                <form method="post">
+                    <h2 style="color:white; text-align: center;">Afforestation Form</h2>
+                    {{ form.hidden_tag() }}
+                    {{ form.coordinates.label }}<br><h3>Choose a polygon from the map</h3><br>
+                    {{ form.startDate.label }}<br>{{ form.startDate }}<br>
+                    {{ form.endDate.label }}<br>{{ form.endDate }}<br>
+                    {{ form.organisation.label }}<br>{{ form.organisation }}
+                    {{ form.submit() }}
+                </form>
+            </div>
         </div>
+    </div>
+
+{#    <script>#}
+{#        map_osm.on('measurefinish', function(evt){#}
+{#                fetch("/measureFinish", {#}
+{#                    method: "post",#}
+{#                    headers: {#}
+{#                        "Accept": "application/json",#}
+{#                        "Content-Type": "application/json"#}
+{#                    },#}
+{#                    body: JSON.stringify({#}
+{#                        oJS_In: evt#}
+{#                    }, getCircularReplacer())#}
+{#                });#}
+{#            });#}
+{##}
+{#            const getCircularReplacer = () => {#}
+{#              const seen = new WeakSet()#}
+{#              return (key, value) => {#}
+{#                if (typeof value === "object" && value !== null) {#}
+{#                  if (seen.has(value)) {#}
+{#                    return#}
+{#                  }#}
+{#                  seen.add(value)#}
+{#                }#}
+{#                return value#}
+{#              }#}
+{#            }#}
+{#    </script>#}
 {% endblock %}

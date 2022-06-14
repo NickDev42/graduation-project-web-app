@@ -1,0 +1,26 @@
+{% extends "index.html" %}
+{% block content %}
+        <div class="row">
+        <div class="col">
+            <h2 style="color:white; text-align: center;">Map</h2>
+            <iframe src="/map" width="800px", height="500px"></iframe>
+        </div>
+        <div class="col">
+            <div class="formdiv" >
+                <form method="post">
+                    <h2 style="color:white; text-align: center;">Join Afforestation Form</h2>
+{#                    {{ form.hidden_tag() }}#}
+                    <select name="afforestation">
+                        {% for item in afforestation_list %}
+                            <option value="{{ item[0] }}">{{ item }}</option>
+                        {% endfor %}
+                    </select><br>
+{#                    {{ form.coordinates.label }}<br><h3>Choose a polygon from the map</h3><br>#}
+                    {{ form.name.label }}<br>{{ form.name }}<br>
+                    {{ form.email.label }}<br>{{ form.email }}<br>
+                    {{ form.submit() }}
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
