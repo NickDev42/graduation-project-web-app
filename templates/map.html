@@ -23,7 +23,7 @@
             <meta name="viewport" content="width=device-width,
                 initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             <style>
-                #map_2134a761029d37a30cb4ee46f19e4551 {
+                #map_2e1897a1a91cbd800abe7b620fc7db47 {
                     position: relative;
                     width: 100.0%;
                     height: 100.0%;
@@ -37,13 +37,13 @@
 </head>
 <body>    
     
-            <div class="folium-map" id="map_2134a761029d37a30cb4ee46f19e4551" ></div>
+            <div class="folium-map" id="map_2e1897a1a91cbd800abe7b620fc7db47" ></div>
         
 </body>
 <script>    
     
-            var map_2134a761029d37a30cb4ee46f19e4551 = L.map(
-                "map_2134a761029d37a30cb4ee46f19e4551",
+            var map_2e1897a1a91cbd800abe7b620fc7db47 = L.map(
+                "map_2e1897a1a91cbd800abe7b620fc7db47",
                 {
                     center: [35.0, 33.0],
                     crs: L.CRS.EPSG3857,
@@ -57,20 +57,20 @@
 
         
     
-            var tile_layer_4fbc809dffa582dcb695f5f948b3ff37 = L.tileLayer(
+            var tile_layer_494b91ff1ff87fbc4d79dec6ff882a9f = L.tileLayer(
                 "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
                 {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
-            ).addTo(map_2134a761029d37a30cb4ee46f19e4551);
+            ).addTo(map_2e1897a1a91cbd800abe7b620fc7db47);
         
     
-            var measure_control_a66d12aed6c7a02cfe573703bf093b1b = new L.Control.Measure(
+            var measure_control_3ad00a3f988523b49f287805a8320c05 = new L.Control.Measure(
                 {"position": "topright", "primaryAreaUnit": "sqmeters", "primaryLengthUnit": "meters", "secondaryAreaUnit": "acres", "secondaryLengthUnit": "miles"});
-            map_2134a761029d37a30cb4ee46f19e4551.addControl(measure_control_a66d12aed6c7a02cfe573703bf093b1b);
+            map_2e1897a1a91cbd800abe7b620fc7db47.addControl(measure_control_3ad00a3f988523b49f287805a8320c05);
 
         
     
-            var map_osm = map_2134a761029d37a30cb4ee46f19e4551;
-            map_2134a761029d37a30cb4ee46f19e4551.on('measurefinish', function(evt){
+            var map_osm = map_2e1897a1a91cbd800abe7b620fc7db47;
+            map_2e1897a1a91cbd800abe7b620fc7db47.on('measurefinish', function(evt){
                 fetch("/measureFinish", {
                     method: "post",
                     headers: {
@@ -97,761 +97,457 @@
             }
         
     
-            var polygon_2f8fccd4febbc63b3c61b5e6df9b77e8 = L.polygon(
+            var polygon_3a392f43eaf101383cd998068c987223 = L.polygon(
                 [[34.84987503195418, 33.08532714843751], [34.908457853981396, 33.30505371093751], [34.8183131456094, 33.30505371093751], [34.80929324176267, 33.20068359375001]],
                 {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
-            ).addTo(map_2134a761029d37a30cb4ee46f19e4551);
+            ).addTo(map_2e1897a1a91cbd800abe7b620fc7db47);
         
     
-        var popup_d0f74726a8781f4597e2b2f4b3dbe2e4 = L.popup({"maxWidth": 500});
+        var popup_9aa1ddbbc50bf8d3a1132a547b6c352e = L.popup({"maxWidth": 500});
 
         
-            var html_edd95ef1fc5d786fde0532d19ad9ebaf = $(`<div id="html_edd95ef1fc5d786fde0532d19ad9ebaf" style="width: 100.0%; height: 100.0%;">         <!DOCTYPE html>         <html>         <center>         <body>         <table style="height: 150px; width: 500px;">             <tbody>                 <tr>                     <td style="background-color: blue"><span style="color: white">StartDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-15</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">EndDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-17</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">Coordinates</span></td>                     <td style="background-color: white"><span style="color: blue">[{"lat": 34.84987503195418, "lng": 33.08532714843751}, {"lat": 34.908457853981396, "lng": 33.30505371093751}, {"lat": 34.8183131456094, "lng": 33.30505371093751}, {"lat": 34.80929324176267, "lng": 33.20068359375001}]</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">ID</span></td>                     <td style="background-color: white"><span style="color: blue">21</span></td>                 </tr>                 <tr>                     <a href="/statusSpecific" target="_top"><button>See Status</button></a>                     <a href="/contextSpecific" target="_top"><button>See Contextual Information</button></a>                 </tr>             </tbody>         </table>         </center>         </html>     </div>`)[0];
-            popup_d0f74726a8781f4597e2b2f4b3dbe2e4.setContent(html_edd95ef1fc5d786fde0532d19ad9ebaf);
+            var html_1453f7b3afdd96bc6f9f002e8f46bd43 = $(`<div id="html_1453f7b3afdd96bc6f9f002e8f46bd43" style="width: 100.0%; height: 100.0%;">         <!DOCTYPE html>         <html>         <center>         <body>         <table style="height: 150px; width: 500px;">             <tbody>                 <tr>                     <td style="background-color: blue"><span style="color: white">StartDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-15</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">EndDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-17</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">Coordinates</span></td>                     <td style="background-color: white"><span style="color: blue">[{"lat": 34.84987503195418, "lng": 33.08532714843751}, {"lat": 34.908457853981396, "lng": 33.30505371093751}, {"lat": 34.8183131456094, "lng": 33.30505371093751}, {"lat": 34.80929324176267, "lng": 33.20068359375001}]</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">ID</span></td>                     <td style="background-color: white"><span style="color: blue">21</span></td>                 </tr>                 <tr>                     <a href="/statusSpecific" target="_top"><button>See Status</button></a>                     <a href="/contextSpecific" target="_top"><button>See Contextual Information</button></a>                 </tr>             </tbody>         </table>         </center>         </html>     </div>`)[0];
+            popup_9aa1ddbbc50bf8d3a1132a547b6c352e.setContent(html_1453f7b3afdd96bc6f9f002e8f46bd43);
         
 
-        polygon_2f8fccd4febbc63b3c61b5e6df9b77e8.bindPopup(popup_d0f74726a8781f4597e2b2f4b3dbe2e4)
+        polygon_3a392f43eaf101383cd998068c987223.bindPopup(popup_9aa1ddbbc50bf8d3a1132a547b6c352e)
         ;
 
         
     
     
-            var polygon_5344aa985e8b631ade625f4e6cd66663 = L.polygon(
+            var polygon_cbea50dd9a2948fedd6796e0ada67a49 = L.polygon(
                 [[34.95349314197422, 32.74475097656251], [35.007502842952896, 33.07983398437501], [34.827332061981586, 32.90405273437501]],
                 {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
-            ).addTo(map_2134a761029d37a30cb4ee46f19e4551);
+            ).addTo(map_2e1897a1a91cbd800abe7b620fc7db47);
         
     
-        var popup_aa2998e23d515ef3cec62a3d33613e4a = L.popup({"maxWidth": 500});
+        var popup_61d4321ddda00f59167c2be9421af23a = L.popup({"maxWidth": 500});
 
         
-            var html_f0ac8eeb90680d4232f6e9a617c754c1 = $(`<div id="html_f0ac8eeb90680d4232f6e9a617c754c1" style="width: 100.0%; height: 100.0%;">         <!DOCTYPE html>         <html>         <center>         <body>         <table style="height: 150px; width: 500px;">             <tbody>                 <tr>                     <td style="background-color: blue"><span style="color: white">StartDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-10</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">EndDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-16</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">Coordinates</span></td>                     <td style="background-color: white"><span style="color: blue">[{"lat": 34.95349314197422, "lng": 32.74475097656251}, {"lat": 35.007502842952896, "lng": 33.07983398437501}, {"lat": 34.827332061981586, "lng": 32.90405273437501}]</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">ID</span></td>                     <td style="background-color: white"><span style="color: blue">22</span></td>                 </tr>                 <tr>                     <a href="/statusSpecific" target="_top"><button>See Status</button></a>                     <a href="/contextSpecific" target="_top"><button>See Contextual Information</button></a>                 </tr>             </tbody>         </table>         </center>         </html>     </div>`)[0];
-            popup_aa2998e23d515ef3cec62a3d33613e4a.setContent(html_f0ac8eeb90680d4232f6e9a617c754c1);
+            var html_e2ab6ede49bc6a6997e39e5e15154d44 = $(`<div id="html_e2ab6ede49bc6a6997e39e5e15154d44" style="width: 100.0%; height: 100.0%;">         <!DOCTYPE html>         <html>         <center>         <body>         <table style="height: 150px; width: 500px;">             <tbody>                 <tr>                     <td style="background-color: blue"><span style="color: white">StartDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-10</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">EndDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-16</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">Coordinates</span></td>                     <td style="background-color: white"><span style="color: blue">[{"lat": 34.95349314197422, "lng": 32.74475097656251}, {"lat": 35.007502842952896, "lng": 33.07983398437501}, {"lat": 34.827332061981586, "lng": 32.90405273437501}]</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">ID</span></td>                     <td style="background-color: white"><span style="color: blue">22</span></td>                 </tr>                 <tr>                     <a href="/statusSpecific" target="_top"><button>See Status</button></a>                     <a href="/contextSpecific" target="_top"><button>See Contextual Information</button></a>                 </tr>             </tbody>         </table>         </center>         </html>     </div>`)[0];
+            popup_61d4321ddda00f59167c2be9421af23a.setContent(html_e2ab6ede49bc6a6997e39e5e15154d44);
         
 
-        polygon_5344aa985e8b631ade625f4e6cd66663.bindPopup(popup_aa2998e23d515ef3cec62a3d33613e4a)
+        polygon_cbea50dd9a2948fedd6796e0ada67a49.bindPopup(popup_61d4321ddda00f59167c2be9421af23a)
         ;
 
         
     
     
-            var polygon_8ddd85c2f03b834041ce17590703fd3d = L.polygon(
+            var polygon_deb5fab9d96ddfd0a1cbfde334046d34 = L.polygon(
                 [[35.03899204678081, 33.16223144531251], [35.04798673426734, 33.42041015625001], [34.94448806230625, 33.36547851562501], [34.962497232449145, 33.16772460937501]],
                 {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
-            ).addTo(map_2134a761029d37a30cb4ee46f19e4551);
+            ).addTo(map_2e1897a1a91cbd800abe7b620fc7db47);
         
     
-        var popup_7030326e5d647e89fb6b2a0eac231c7f = L.popup({"maxWidth": 500});
+        var popup_095f96cfb01877ad26e09db31c6466f2 = L.popup({"maxWidth": 500});
 
         
-            var html_a5d99b784bea74519e351a6882b5c6b9 = $(`<div id="html_a5d99b784bea74519e351a6882b5c6b9" style="width: 100.0%; height: 100.0%;">         <!DOCTYPE html>         <html>         <center>         <body>         <table style="height: 150px; width: 500px;">             <tbody>                 <tr>                     <td style="background-color: blue"><span style="color: white">StartDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-16</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">EndDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-25</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">Coordinates</span></td>                     <td style="background-color: white"><span style="color: blue">[{"lat": 35.03899204678081, "lng": 33.16223144531251}, {"lat": 35.04798673426734, "lng": 33.42041015625001}, {"lat": 34.94448806230625, "lng": 33.36547851562501}, {"lat": 34.962497232449145, "lng": 33.16772460937501}]</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">ID</span></td>                     <td style="background-color: white"><span style="color: blue">23</span></td>                 </tr>                 <tr>                     <a href="/statusSpecific" target="_top"><button>See Status</button></a>                     <a href="/contextSpecific" target="_top"><button>See Contextual Information</button></a>                 </tr>             </tbody>         </table>         </center>         </html>     </div>`)[0];
-            popup_7030326e5d647e89fb6b2a0eac231c7f.setContent(html_a5d99b784bea74519e351a6882b5c6b9);
+            var html_43af168004bd83cb19f172c917a63905 = $(`<div id="html_43af168004bd83cb19f172c917a63905" style="width: 100.0%; height: 100.0%;">         <!DOCTYPE html>         <html>         <center>         <body>         <table style="height: 150px; width: 500px;">             <tbody>                 <tr>                     <td style="background-color: blue"><span style="color: white">StartDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-16</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">EndDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-25</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">Coordinates</span></td>                     <td style="background-color: white"><span style="color: blue">[{"lat": 35.03899204678081, "lng": 33.16223144531251}, {"lat": 35.04798673426734, "lng": 33.42041015625001}, {"lat": 34.94448806230625, "lng": 33.36547851562501}, {"lat": 34.962497232449145, "lng": 33.16772460937501}]</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">ID</span></td>                     <td style="background-color: white"><span style="color: blue">23</span></td>                 </tr>                 <tr>                     <a href="/statusSpecific" target="_top"><button>See Status</button></a>                     <a href="/contextSpecific" target="_top"><button>See Contextual Information</button></a>                 </tr>             </tbody>         </table>         </center>         </html>     </div>`)[0];
+            popup_095f96cfb01877ad26e09db31c6466f2.setContent(html_43af168004bd83cb19f172c917a63905);
         
 
-        polygon_8ddd85c2f03b834041ce17590703fd3d.bindPopup(popup_7030326e5d647e89fb6b2a0eac231c7f)
+        polygon_deb5fab9d96ddfd0a1cbfde334046d34.bindPopup(popup_095f96cfb01877ad26e09db31c6466f2)
         ;
 
         
     
     
-            var polygon_7d7195341fbcf8fe0e8ceb8a797e2c64 = L.polygon(
+            var polygon_8c7dd3c0415ea9b69728010b48f94b6f = L.polygon(
                 [[34.994003757575776, 32.50305175781251], [34.88142481679758, 32.65136718750001], [34.80929324176267, 32.51953125000001]],
                 {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
-            ).addTo(map_2134a761029d37a30cb4ee46f19e4551);
+            ).addTo(map_2e1897a1a91cbd800abe7b620fc7db47);
         
     
-        var popup_947498611d56bf84a4754d2b20cd08c1 = L.popup({"maxWidth": 500});
+        var popup_e5145dbe689198c951690254fbd86724 = L.popup({"maxWidth": 500});
 
         
-            var html_9cadcff5f39d72de470da1dd1df5d661 = $(`<div id="html_9cadcff5f39d72de470da1dd1df5d661" style="width: 100.0%; height: 100.0%;">         <!DOCTYPE html>         <html>         <center>         <body>         <table style="height: 150px; width: 500px;">             <tbody>                 <tr>                     <td style="background-color: blue"><span style="color: white">StartDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-12</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">EndDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-18</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">Coordinates</span></td>                     <td style="background-color: white"><span style="color: blue">[{"lat": 34.994003757575776, "lng": 32.50305175781251}, {"lat": 34.88142481679758, "lng": 32.65136718750001}, {"lat": 34.80929324176267, "lng": 32.51953125000001}]</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">ID</span></td>                     <td style="background-color: white"><span style="color: blue">24</span></td>                 </tr>                 <tr>                     <a href="/statusSpecific" target="_top"><button>See Status</button></a>                     <a href="/contextSpecific" target="_top"><button>See Contextual Information</button></a>                 </tr>             </tbody>         </table>         </center>         </html>     </div>`)[0];
-            popup_947498611d56bf84a4754d2b20cd08c1.setContent(html_9cadcff5f39d72de470da1dd1df5d661);
+            var html_104a0706eeb137c9914793cd71402d52 = $(`<div id="html_104a0706eeb137c9914793cd71402d52" style="width: 100.0%; height: 100.0%;">         <!DOCTYPE html>         <html>         <center>         <body>         <table style="height: 150px; width: 500px;">             <tbody>                 <tr>                     <td style="background-color: blue"><span style="color: white">StartDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-12</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">EndDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-18</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">Coordinates</span></td>                     <td style="background-color: white"><span style="color: blue">[{"lat": 34.994003757575776, "lng": 32.50305175781251}, {"lat": 34.88142481679758, "lng": 32.65136718750001}, {"lat": 34.80929324176267, "lng": 32.51953125000001}]</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">ID</span></td>                     <td style="background-color: white"><span style="color: blue">24</span></td>                 </tr>                 <tr>                     <a href="/statusSpecific" target="_top"><button>See Status</button></a>                     <a href="/contextSpecific" target="_top"><button>See Contextual Information</button></a>                 </tr>             </tbody>         </table>         </center>         </html>     </div>`)[0];
+            popup_e5145dbe689198c951690254fbd86724.setContent(html_104a0706eeb137c9914793cd71402d52);
         
 
-        polygon_7d7195341fbcf8fe0e8ceb8a797e2c64.bindPopup(popup_947498611d56bf84a4754d2b20cd08c1)
+        polygon_8c7dd3c0415ea9b69728010b48f94b6f.bindPopup(popup_e5145dbe689198c951690254fbd86724)
         ;
 
         
     
     
-            var polygon_d2928506824095528776b05b71609f00 = L.polygon(
+            var polygon_3e180812e37590f0fff1a46220d44a56 = L.polygon(
                 [[35.088450570365396, 32.61291503906251], [35.092945313732635, 32.83264160156251], [35.0254981588326, 32.71179199218751]],
                 {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
-            ).addTo(map_2134a761029d37a30cb4ee46f19e4551);
+            ).addTo(map_2e1897a1a91cbd800abe7b620fc7db47);
         
     
-        var popup_4847796dd23dc96026ab14a63776f13e = L.popup({"maxWidth": 500});
+        var popup_5abe39861fe9cab000721858504dc5e7 = L.popup({"maxWidth": 500});
 
         
-            var html_d63f24f33e75a820bc3032c62868332f = $(`<div id="html_d63f24f33e75a820bc3032c62868332f" style="width: 100.0%; height: 100.0%;">         <!DOCTYPE html>         <html>         <center>         <body>         <table style="height: 150px; width: 500px;">             <tbody>                 <tr>                     <td style="background-color: blue"><span style="color: white">StartDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-15</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">EndDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-24</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">Coordinates</span></td>                     <td style="background-color: white"><span style="color: blue">[{"lat": 35.088450570365396, "lng": 32.61291503906251}, {"lat": 35.092945313732635, "lng": 32.83264160156251}, {"lat": 35.0254981588326, "lng": 32.71179199218751}]</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">ID</span></td>                     <td style="background-color: white"><span style="color: blue">25</span></td>                 </tr>                 <tr>                     <a href="/statusSpecific" target="_top"><button>See Status</button></a>                     <a href="/contextSpecific" target="_top"><button>See Contextual Information</button></a>                 </tr>             </tbody>         </table>         </center>         </html>     </div>`)[0];
-            popup_4847796dd23dc96026ab14a63776f13e.setContent(html_d63f24f33e75a820bc3032c62868332f);
+            var html_348313f335470ea3f2280b6f1a586c51 = $(`<div id="html_348313f335470ea3f2280b6f1a586c51" style="width: 100.0%; height: 100.0%;">         <!DOCTYPE html>         <html>         <center>         <body>         <table style="height: 150px; width: 500px;">             <tbody>                 <tr>                     <td style="background-color: blue"><span style="color: white">StartDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-15</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">EndDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-24</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">Coordinates</span></td>                     <td style="background-color: white"><span style="color: blue">[{"lat": 35.088450570365396, "lng": 32.61291503906251}, {"lat": 35.092945313732635, "lng": 32.83264160156251}, {"lat": 35.0254981588326, "lng": 32.71179199218751}]</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">ID</span></td>                     <td style="background-color: white"><span style="color: blue">25</span></td>                 </tr>                 <tr>                     <a href="/statusSpecific" target="_top"><button>See Status</button></a>                     <a href="/contextSpecific" target="_top"><button>See Contextual Information</button></a>                 </tr>             </tbody>         </table>         </center>         </html>     </div>`)[0];
+            popup_5abe39861fe9cab000721858504dc5e7.setContent(html_348313f335470ea3f2280b6f1a586c51);
         
 
-        polygon_d2928506824095528776b05b71609f00.bindPopup(popup_4847796dd23dc96026ab14a63776f13e)
+        polygon_3e180812e37590f0fff1a46220d44a56.bindPopup(popup_5abe39861fe9cab000721858504dc5e7)
         ;
 
         
     
     
-            var polygon_eb2a24014bd10f7d9fde6bcf8acb0ca6 = L.polygon(
+            var polygon_705c5b6c9a680aed69c949202e44a7d6 = L.polygon(
                 [[34.92647493584645, 33.43688964843751], [34.912962495216966, 33.57971191406251], [34.867904962568744, 33.48632812500001]],
                 {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
-            ).addTo(map_2134a761029d37a30cb4ee46f19e4551);
+            ).addTo(map_2e1897a1a91cbd800abe7b620fc7db47);
         
     
-        var popup_26c2e8a9a396065900b3014ed77f8ff2 = L.popup({"maxWidth": 500});
+        var popup_dce3d2ecffca3288696562560810e579 = L.popup({"maxWidth": 500});
 
         
-            var html_33ef6e6a636e31481c2d1726d295567f = $(`<div id="html_33ef6e6a636e31481c2d1726d295567f" style="width: 100.0%; height: 100.0%;">         <!DOCTYPE html>         <html>         <center>         <body>         <table style="height: 150px; width: 500px;">             <tbody>                 <tr>                     <td style="background-color: blue"><span style="color: white">StartDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-23</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">EndDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-07-01</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">Coordinates</span></td>                     <td style="background-color: white"><span style="color: blue">[{"lat": 34.92647493584645, "lng": 33.43688964843751}, {"lat": 34.912962495216966, "lng": 33.57971191406251}, {"lat": 34.867904962568744, "lng": 33.48632812500001}]</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">ID</span></td>                     <td style="background-color: white"><span style="color: blue">26</span></td>                 </tr>                 <tr>                     <a href="/statusSpecific" target="_top"><button>See Status</button></a>                     <a href="/contextSpecific" target="_top"><button>See Contextual Information</button></a>                 </tr>             </tbody>         </table>         </center>         </html>     </div>`)[0];
-            popup_26c2e8a9a396065900b3014ed77f8ff2.setContent(html_33ef6e6a636e31481c2d1726d295567f);
+            var html_58b4b9e529a84c531137478bcbffa827 = $(`<div id="html_58b4b9e529a84c531137478bcbffa827" style="width: 100.0%; height: 100.0%;">         <!DOCTYPE html>         <html>         <center>         <body>         <table style="height: 150px; width: 500px;">             <tbody>                 <tr>                     <td style="background-color: blue"><span style="color: white">StartDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-23</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">EndDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-07-01</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">Coordinates</span></td>                     <td style="background-color: white"><span style="color: blue">[{"lat": 34.92647493584645, "lng": 33.43688964843751}, {"lat": 34.912962495216966, "lng": 33.57971191406251}, {"lat": 34.867904962568744, "lng": 33.48632812500001}]</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">ID</span></td>                     <td style="background-color: white"><span style="color: blue">26</span></td>                 </tr>                 <tr>                     <a href="/statusSpecific" target="_top"><button>See Status</button></a>                     <a href="/contextSpecific" target="_top"><button>See Contextual Information</button></a>                 </tr>             </tbody>         </table>         </center>         </html>     </div>`)[0];
+            popup_dce3d2ecffca3288696562560810e579.setContent(html_58b4b9e529a84c531137478bcbffa827);
         
 
-        polygon_eb2a24014bd10f7d9fde6bcf8acb0ca6.bindPopup(popup_26c2e8a9a396065900b3014ed77f8ff2)
+        polygon_705c5b6c9a680aed69c949202e44a7d6.bindPopup(popup_dce3d2ecffca3288696562560810e579)
         ;
 
         
     
     
-            var polygon_5f528a2296062e87f312ba52561f2cbe = L.polygon(
+            var polygon_af8179e5e40971979821778550fff5b9 = L.polygon(
                 [[34.80929324176267, 32.83813476562501], [34.79576153473033, 32.89855957031251], [34.7461262752594, 32.89855957031251]],
                 {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
-            ).addTo(map_2134a761029d37a30cb4ee46f19e4551);
+            ).addTo(map_2e1897a1a91cbd800abe7b620fc7db47);
         
     
-        var popup_03e9150c2df9af2432ae4f913653a6f4 = L.popup({"maxWidth": 500});
+        var popup_feb8f51d44ad63ea9e64a2fa004c906b = L.popup({"maxWidth": 500});
 
         
-            var html_23ee3ef2a444e5ff60d898c3ea1a2166 = $(`<div id="html_23ee3ef2a444e5ff60d898c3ea1a2166" style="width: 100.0%; height: 100.0%;">         <!DOCTYPE html>         <html>         <center>         <body>         <table style="height: 150px; width: 500px;">             <tbody>                 <tr>                     <td style="background-color: blue"><span style="color: white">StartDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-26</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">EndDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-07-03</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">Coordinates</span></td>                     <td style="background-color: white"><span style="color: blue">[{"lat": 34.80929324176267, "lng": 32.83813476562501}, {"lat": 34.79576153473033, "lng": 32.89855957031251}, {"lat": 34.7461262752594, "lng": 32.89855957031251}]</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">ID</span></td>                     <td style="background-color: white"><span style="color: blue">27</span></td>                 </tr>                 <tr>                     <a href="/statusSpecific" target="_top"><button>See Status</button></a>                     <a href="/contextSpecific" target="_top"><button>See Contextual Information</button></a>                 </tr>             </tbody>         </table>         </center>         </html>     </div>`)[0];
-            popup_03e9150c2df9af2432ae4f913653a6f4.setContent(html_23ee3ef2a444e5ff60d898c3ea1a2166);
+            var html_c91018fde1496453535744adb9b60f44 = $(`<div id="html_c91018fde1496453535744adb9b60f44" style="width: 100.0%; height: 100.0%;">         <!DOCTYPE html>         <html>         <center>         <body>         <table style="height: 150px; width: 500px;">             <tbody>                 <tr>                     <td style="background-color: blue"><span style="color: white">StartDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-26</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">EndDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-07-03</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">Coordinates</span></td>                     <td style="background-color: white"><span style="color: blue">[{"lat": 34.80929324176267, "lng": 32.83813476562501}, {"lat": 34.79576153473033, "lng": 32.89855957031251}, {"lat": 34.7461262752594, "lng": 32.89855957031251}]</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">ID</span></td>                     <td style="background-color: white"><span style="color: blue">27</span></td>                 </tr>                 <tr>                     <a href="/statusSpecific" target="_top"><button>See Status</button></a>                     <a href="/contextSpecific" target="_top"><button>See Contextual Information</button></a>                 </tr>             </tbody>         </table>         </center>         </html>     </div>`)[0];
+            popup_feb8f51d44ad63ea9e64a2fa004c906b.setContent(html_c91018fde1496453535744adb9b60f44);
         
 
-        polygon_5f528a2296062e87f312ba52561f2cbe.bindPopup(popup_03e9150c2df9af2432ae4f913653a6f4)
+        polygon_af8179e5e40971979821778550fff5b9.bindPopup(popup_feb8f51d44ad63ea9e64a2fa004c906b)
         ;
 
         
     
     
-            var polygon_52fbf71a2d9953f92400a869f44f62f2 = L.polygon(
+            var polygon_d7bbddd35dcad760f6bb47b1722a2530 = L.polygon(
                 [[34.79125047210742, 32.65686035156251], [34.76417891445512, 32.72827148437501], [34.70097741472011, 32.67883300781251]],
                 {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
-            ).addTo(map_2134a761029d37a30cb4ee46f19e4551);
+            ).addTo(map_2e1897a1a91cbd800abe7b620fc7db47);
         
     
-        var popup_a897d6e6d1db7fde7170520442f638ec = L.popup({"maxWidth": 500});
+        var popup_8f7637ddad8ca5bca88d12eecaaaa95c = L.popup({"maxWidth": 500});
 
         
-            var html_cd2761d168fb120184aa9db8d1bc128e = $(`<div id="html_cd2761d168fb120184aa9db8d1bc128e" style="width: 100.0%; height: 100.0%;">         <!DOCTYPE html>         <html>         <center>         <body>         <table style="height: 150px; width: 500px;">             <tbody>                 <tr>                     <td style="background-color: blue"><span style="color: white">StartDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-22</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">EndDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-24</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">Coordinates</span></td>                     <td style="background-color: white"><span style="color: blue">[{"lat": 34.79125047210742, "lng": 32.65686035156251}, {"lat": 34.76417891445512, "lng": 32.72827148437501}, {"lat": 34.70097741472011, "lng": 32.67883300781251}]</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">ID</span></td>                     <td style="background-color: white"><span style="color: blue">28</span></td>                 </tr>                 <tr>                     <a href="/statusSpecific" target="_top"><button>See Status</button></a>                     <a href="/contextSpecific" target="_top"><button>See Contextual Information</button></a>                 </tr>             </tbody>         </table>         </center>         </html>     </div>`)[0];
-            popup_a897d6e6d1db7fde7170520442f638ec.setContent(html_cd2761d168fb120184aa9db8d1bc128e);
+            var html_39f1c5b869cc24f93b433994a00f4a72 = $(`<div id="html_39f1c5b869cc24f93b433994a00f4a72" style="width: 100.0%; height: 100.0%;">         <!DOCTYPE html>         <html>         <center>         <body>         <table style="height: 150px; width: 500px;">             <tbody>                 <tr>                     <td style="background-color: blue"><span style="color: white">StartDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-22</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">EndDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-24</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">Coordinates</span></td>                     <td style="background-color: white"><span style="color: blue">[{"lat": 34.79125047210742, "lng": 32.65686035156251}, {"lat": 34.76417891445512, "lng": 32.72827148437501}, {"lat": 34.70097741472011, "lng": 32.67883300781251}]</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">ID</span></td>                     <td style="background-color: white"><span style="color: blue">28</span></td>                 </tr>                 <tr>                     <a href="/statusSpecific" target="_top"><button>See Status</button></a>                     <a href="/contextSpecific" target="_top"><button>See Contextual Information</button></a>                 </tr>             </tbody>         </table>         </center>         </html>     </div>`)[0];
+            popup_8f7637ddad8ca5bca88d12eecaaaa95c.setContent(html_39f1c5b869cc24f93b433994a00f4a72);
         
 
-        polygon_52fbf71a2d9953f92400a869f44f62f2.bindPopup(popup_a897d6e6d1db7fde7170520442f638ec)
+        polygon_d7bbddd35dcad760f6bb47b1722a2530.bindPopup(popup_8f7637ddad8ca5bca88d12eecaaaa95c)
         ;
 
         
     
     
-            var polygon_0f1724c179f5624411aae47af3004ff7 = L.polygon(
+            var polygon_b5e629cc736d0d7d58cd34af5a4336f0 = L.polygon(
                 [[34.84987503195418, 33.08532714843751], [34.908457853981396, 33.30505371093751], [34.8183131456094, 33.30505371093751], [34.80929324176267, 33.20068359375001]],
                 {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
-            ).addTo(map_2134a761029d37a30cb4ee46f19e4551);
+            ).addTo(map_2e1897a1a91cbd800abe7b620fc7db47);
         
     
-        var popup_2065c23afd56932e111be7de271ca8fb = L.popup({"maxWidth": 500});
+        var popup_a52945b313bf3c3b8f7576b8e10efe5a = L.popup({"maxWidth": 500});
 
         
-            var html_275e6d76244d42bbe35a711cf16924ff = $(`<div id="html_275e6d76244d42bbe35a711cf16924ff" style="width: 100.0%; height: 100.0%;">         <!DOCTYPE html>         <html>         <center>         <body>         <table style="height: 150px; width: 500px;">             <tbody>                 <tr>                     <td style="background-color: blue"><span style="color: white">StartDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-15</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">EndDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-17</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">Coordinates</span></td>                     <td style="background-color: white"><span style="color: blue">[{"lat": 34.84987503195418, "lng": 33.08532714843751}, {"lat": 34.908457853981396, "lng": 33.30505371093751}, {"lat": 34.8183131456094, "lng": 33.30505371093751}, {"lat": 34.80929324176267, "lng": 33.20068359375001}]</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">ID</span></td>                     <td style="background-color: white"><span style="color: blue">21</span></td>                 </tr>                 <tr>                     <a href="/statusSpecific" target="_top"><button>See Status</button></a>                     <a href="/contextSpecific" target="_top"><button>See Contextual Information</button></a>                 </tr>             </tbody>         </table>         </center>         </html>     </div>`)[0];
-            popup_2065c23afd56932e111be7de271ca8fb.setContent(html_275e6d76244d42bbe35a711cf16924ff);
+            var html_fb7111152f1ab275d8f50f30fc37cb3b = $(`<div id="html_fb7111152f1ab275d8f50f30fc37cb3b" style="width: 100.0%; height: 100.0%;">         <!DOCTYPE html>         <html>         <center>         <body>         <table style="height: 150px; width: 500px;">             <tbody>                 <tr>                     <td style="background-color: blue"><span style="color: white">StartDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-15</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">EndDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-17</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">Coordinates</span></td>                     <td style="background-color: white"><span style="color: blue">[{"lat": 34.84987503195418, "lng": 33.08532714843751}, {"lat": 34.908457853981396, "lng": 33.30505371093751}, {"lat": 34.8183131456094, "lng": 33.30505371093751}, {"lat": 34.80929324176267, "lng": 33.20068359375001}]</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">ID</span></td>                     <td style="background-color: white"><span style="color: blue">21</span></td>                 </tr>                 <tr>                     <a href="/statusSpecific" target="_top"><button>See Status</button></a>                     <a href="/contextSpecific" target="_top"><button>See Contextual Information</button></a>                 </tr>             </tbody>         </table>         </center>         </html>     </div>`)[0];
+            popup_a52945b313bf3c3b8f7576b8e10efe5a.setContent(html_fb7111152f1ab275d8f50f30fc37cb3b);
         
 
-        polygon_0f1724c179f5624411aae47af3004ff7.bindPopup(popup_2065c23afd56932e111be7de271ca8fb)
+        polygon_b5e629cc736d0d7d58cd34af5a4336f0.bindPopup(popup_a52945b313bf3c3b8f7576b8e10efe5a)
         ;
 
         
     
     
-            var polygon_884cd1286f7345f2957843ae99cbaad2 = L.polygon(
+            var polygon_422ec4a676bcc0f36ff15ff3eaacaced = L.polygon(
                 [[34.95349314197422, 32.74475097656251], [35.007502842952896, 33.07983398437501], [34.827332061981586, 32.90405273437501]],
                 {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
-            ).addTo(map_2134a761029d37a30cb4ee46f19e4551);
+            ).addTo(map_2e1897a1a91cbd800abe7b620fc7db47);
         
     
-        var popup_7cc46236d2ae583267e64df4c81902a8 = L.popup({"maxWidth": 500});
+        var popup_11d8ada12f03081c9b434573c161a01d = L.popup({"maxWidth": 500});
 
         
-            var html_74f5d293bea06312c3c4f038897f1b46 = $(`<div id="html_74f5d293bea06312c3c4f038897f1b46" style="width: 100.0%; height: 100.0%;">         <!DOCTYPE html>         <html>         <center>         <body>         <table style="height: 150px; width: 500px;">             <tbody>                 <tr>                     <td style="background-color: blue"><span style="color: white">StartDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-10</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">EndDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-16</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">Coordinates</span></td>                     <td style="background-color: white"><span style="color: blue">[{"lat": 34.95349314197422, "lng": 32.74475097656251}, {"lat": 35.007502842952896, "lng": 33.07983398437501}, {"lat": 34.827332061981586, "lng": 32.90405273437501}]</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">ID</span></td>                     <td style="background-color: white"><span style="color: blue">22</span></td>                 </tr>                 <tr>                     <a href="/statusSpecific" target="_top"><button>See Status</button></a>                     <a href="/contextSpecific" target="_top"><button>See Contextual Information</button></a>                 </tr>             </tbody>         </table>         </center>         </html>     </div>`)[0];
-            popup_7cc46236d2ae583267e64df4c81902a8.setContent(html_74f5d293bea06312c3c4f038897f1b46);
+            var html_5079165f06636613a8be51525a91e5ef = $(`<div id="html_5079165f06636613a8be51525a91e5ef" style="width: 100.0%; height: 100.0%;">         <!DOCTYPE html>         <html>         <center>         <body>         <table style="height: 150px; width: 500px;">             <tbody>                 <tr>                     <td style="background-color: blue"><span style="color: white">StartDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-10</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">EndDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-16</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">Coordinates</span></td>                     <td style="background-color: white"><span style="color: blue">[{"lat": 34.95349314197422, "lng": 32.74475097656251}, {"lat": 35.007502842952896, "lng": 33.07983398437501}, {"lat": 34.827332061981586, "lng": 32.90405273437501}]</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">ID</span></td>                     <td style="background-color: white"><span style="color: blue">22</span></td>                 </tr>                 <tr>                     <a href="/statusSpecific" target="_top"><button>See Status</button></a>                     <a href="/contextSpecific" target="_top"><button>See Contextual Information</button></a>                 </tr>             </tbody>         </table>         </center>         </html>     </div>`)[0];
+            popup_11d8ada12f03081c9b434573c161a01d.setContent(html_5079165f06636613a8be51525a91e5ef);
         
 
-        polygon_884cd1286f7345f2957843ae99cbaad2.bindPopup(popup_7cc46236d2ae583267e64df4c81902a8)
+        polygon_422ec4a676bcc0f36ff15ff3eaacaced.bindPopup(popup_11d8ada12f03081c9b434573c161a01d)
         ;
 
         
     
     
-            var polygon_bcd2f1d5dcfa5d22122d28d2e2f0adf7 = L.polygon(
+            var polygon_ddf4138fd96f0136aa94edc52e982cf2 = L.polygon(
                 [[35.03899204678081, 33.16223144531251], [35.04798673426734, 33.42041015625001], [34.94448806230625, 33.36547851562501], [34.962497232449145, 33.16772460937501]],
                 {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
-            ).addTo(map_2134a761029d37a30cb4ee46f19e4551);
+            ).addTo(map_2e1897a1a91cbd800abe7b620fc7db47);
         
     
-        var popup_e9e002777450a79a92513818a0fbc35f = L.popup({"maxWidth": 500});
+        var popup_76f5c5f517db9f52594ffb02f80e1519 = L.popup({"maxWidth": 500});
 
         
-            var html_de1c9ed5a7fac50f22b5952338d60d77 = $(`<div id="html_de1c9ed5a7fac50f22b5952338d60d77" style="width: 100.0%; height: 100.0%;">         <!DOCTYPE html>         <html>         <center>         <body>         <table style="height: 150px; width: 500px;">             <tbody>                 <tr>                     <td style="background-color: blue"><span style="color: white">StartDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-16</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">EndDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-25</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">Coordinates</span></td>                     <td style="background-color: white"><span style="color: blue">[{"lat": 35.03899204678081, "lng": 33.16223144531251}, {"lat": 35.04798673426734, "lng": 33.42041015625001}, {"lat": 34.94448806230625, "lng": 33.36547851562501}, {"lat": 34.962497232449145, "lng": 33.16772460937501}]</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">ID</span></td>                     <td style="background-color: white"><span style="color: blue">23</span></td>                 </tr>                 <tr>                     <a href="/statusSpecific" target="_top"><button>See Status</button></a>                     <a href="/contextSpecific" target="_top"><button>See Contextual Information</button></a>                 </tr>             </tbody>         </table>         </center>         </html>     </div>`)[0];
-            popup_e9e002777450a79a92513818a0fbc35f.setContent(html_de1c9ed5a7fac50f22b5952338d60d77);
+            var html_cfd906719730d7cb4298dbd10636ccdc = $(`<div id="html_cfd906719730d7cb4298dbd10636ccdc" style="width: 100.0%; height: 100.0%;">         <!DOCTYPE html>         <html>         <center>         <body>         <table style="height: 150px; width: 500px;">             <tbody>                 <tr>                     <td style="background-color: blue"><span style="color: white">StartDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-16</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">EndDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-25</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">Coordinates</span></td>                     <td style="background-color: white"><span style="color: blue">[{"lat": 35.03899204678081, "lng": 33.16223144531251}, {"lat": 35.04798673426734, "lng": 33.42041015625001}, {"lat": 34.94448806230625, "lng": 33.36547851562501}, {"lat": 34.962497232449145, "lng": 33.16772460937501}]</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">ID</span></td>                     <td style="background-color: white"><span style="color: blue">23</span></td>                 </tr>                 <tr>                     <a href="/statusSpecific" target="_top"><button>See Status</button></a>                     <a href="/contextSpecific" target="_top"><button>See Contextual Information</button></a>                 </tr>             </tbody>         </table>         </center>         </html>     </div>`)[0];
+            popup_76f5c5f517db9f52594ffb02f80e1519.setContent(html_cfd906719730d7cb4298dbd10636ccdc);
         
 
-        polygon_bcd2f1d5dcfa5d22122d28d2e2f0adf7.bindPopup(popup_e9e002777450a79a92513818a0fbc35f)
+        polygon_ddf4138fd96f0136aa94edc52e982cf2.bindPopup(popup_76f5c5f517db9f52594ffb02f80e1519)
         ;
 
         
     
     
-            var polygon_1228f12a389f698a112c8058bfa50c7e = L.polygon(
+            var polygon_bc6f7227b82511eda1edf23d49618d78 = L.polygon(
                 [[34.994003757575776, 32.50305175781251], [34.88142481679758, 32.65136718750001], [34.80929324176267, 32.51953125000001]],
                 {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
-            ).addTo(map_2134a761029d37a30cb4ee46f19e4551);
+            ).addTo(map_2e1897a1a91cbd800abe7b620fc7db47);
         
     
-        var popup_37fa8488e0e7f36be16ed4caceda2dcb = L.popup({"maxWidth": 500});
+        var popup_fba48bb4ab4bc402c36210d64efc2828 = L.popup({"maxWidth": 500});
 
         
-            var html_f43816c7ea4e0c0c049991c71b3231d6 = $(`<div id="html_f43816c7ea4e0c0c049991c71b3231d6" style="width: 100.0%; height: 100.0%;">         <!DOCTYPE html>         <html>         <center>         <body>         <table style="height: 150px; width: 500px;">             <tbody>                 <tr>                     <td style="background-color: blue"><span style="color: white">StartDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-12</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">EndDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-18</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">Coordinates</span></td>                     <td style="background-color: white"><span style="color: blue">[{"lat": 34.994003757575776, "lng": 32.50305175781251}, {"lat": 34.88142481679758, "lng": 32.65136718750001}, {"lat": 34.80929324176267, "lng": 32.51953125000001}]</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">ID</span></td>                     <td style="background-color: white"><span style="color: blue">24</span></td>                 </tr>                 <tr>                     <a href="/statusSpecific" target="_top"><button>See Status</button></a>                     <a href="/contextSpecific" target="_top"><button>See Contextual Information</button></a>                 </tr>             </tbody>         </table>         </center>         </html>     </div>`)[0];
-            popup_37fa8488e0e7f36be16ed4caceda2dcb.setContent(html_f43816c7ea4e0c0c049991c71b3231d6);
+            var html_d49d2c03e744a0a2c6312d97ac3740ac = $(`<div id="html_d49d2c03e744a0a2c6312d97ac3740ac" style="width: 100.0%; height: 100.0%;">         <!DOCTYPE html>         <html>         <center>         <body>         <table style="height: 150px; width: 500px;">             <tbody>                 <tr>                     <td style="background-color: blue"><span style="color: white">StartDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-12</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">EndDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-18</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">Coordinates</span></td>                     <td style="background-color: white"><span style="color: blue">[{"lat": 34.994003757575776, "lng": 32.50305175781251}, {"lat": 34.88142481679758, "lng": 32.65136718750001}, {"lat": 34.80929324176267, "lng": 32.51953125000001}]</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">ID</span></td>                     <td style="background-color: white"><span style="color: blue">24</span></td>                 </tr>                 <tr>                     <a href="/statusSpecific" target="_top"><button>See Status</button></a>                     <a href="/contextSpecific" target="_top"><button>See Contextual Information</button></a>                 </tr>             </tbody>         </table>         </center>         </html>     </div>`)[0];
+            popup_fba48bb4ab4bc402c36210d64efc2828.setContent(html_d49d2c03e744a0a2c6312d97ac3740ac);
         
 
-        polygon_1228f12a389f698a112c8058bfa50c7e.bindPopup(popup_37fa8488e0e7f36be16ed4caceda2dcb)
+        polygon_bc6f7227b82511eda1edf23d49618d78.bindPopup(popup_fba48bb4ab4bc402c36210d64efc2828)
         ;
 
         
     
     
-            var polygon_2f4836d571de0ea6d5c0d58fbe88c39b = L.polygon(
+            var polygon_0708bf0bbb296de6acc663fc627b227b = L.polygon(
                 [[35.088450570365396, 32.61291503906251], [35.092945313732635, 32.83264160156251], [35.0254981588326, 32.71179199218751]],
                 {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
-            ).addTo(map_2134a761029d37a30cb4ee46f19e4551);
+            ).addTo(map_2e1897a1a91cbd800abe7b620fc7db47);
         
     
-        var popup_57087235e8cf923ae414d47d1c2c5fcb = L.popup({"maxWidth": 500});
+        var popup_424654525b29bdf73e9b341c8fe382c4 = L.popup({"maxWidth": 500});
 
         
-            var html_dbd8eb49a37b751358506bef2c9c2304 = $(`<div id="html_dbd8eb49a37b751358506bef2c9c2304" style="width: 100.0%; height: 100.0%;">         <!DOCTYPE html>         <html>         <center>         <body>         <table style="height: 150px; width: 500px;">             <tbody>                 <tr>                     <td style="background-color: blue"><span style="color: white">StartDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-15</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">EndDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-24</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">Coordinates</span></td>                     <td style="background-color: white"><span style="color: blue">[{"lat": 35.088450570365396, "lng": 32.61291503906251}, {"lat": 35.092945313732635, "lng": 32.83264160156251}, {"lat": 35.0254981588326, "lng": 32.71179199218751}]</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">ID</span></td>                     <td style="background-color: white"><span style="color: blue">25</span></td>                 </tr>                 <tr>                     <a href="/statusSpecific" target="_top"><button>See Status</button></a>                     <a href="/contextSpecific" target="_top"><button>See Contextual Information</button></a>                 </tr>             </tbody>         </table>         </center>         </html>     </div>`)[0];
-            popup_57087235e8cf923ae414d47d1c2c5fcb.setContent(html_dbd8eb49a37b751358506bef2c9c2304);
+            var html_f416bdee8c7a79d8fb146e6aa8ad0c4d = $(`<div id="html_f416bdee8c7a79d8fb146e6aa8ad0c4d" style="width: 100.0%; height: 100.0%;">         <!DOCTYPE html>         <html>         <center>         <body>         <table style="height: 150px; width: 500px;">             <tbody>                 <tr>                     <td style="background-color: blue"><span style="color: white">StartDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-15</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">EndDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-24</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">Coordinates</span></td>                     <td style="background-color: white"><span style="color: blue">[{"lat": 35.088450570365396, "lng": 32.61291503906251}, {"lat": 35.092945313732635, "lng": 32.83264160156251}, {"lat": 35.0254981588326, "lng": 32.71179199218751}]</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">ID</span></td>                     <td style="background-color: white"><span style="color: blue">25</span></td>                 </tr>                 <tr>                     <a href="/statusSpecific" target="_top"><button>See Status</button></a>                     <a href="/contextSpecific" target="_top"><button>See Contextual Information</button></a>                 </tr>             </tbody>         </table>         </center>         </html>     </div>`)[0];
+            popup_424654525b29bdf73e9b341c8fe382c4.setContent(html_f416bdee8c7a79d8fb146e6aa8ad0c4d);
         
 
-        polygon_2f4836d571de0ea6d5c0d58fbe88c39b.bindPopup(popup_57087235e8cf923ae414d47d1c2c5fcb)
+        polygon_0708bf0bbb296de6acc663fc627b227b.bindPopup(popup_424654525b29bdf73e9b341c8fe382c4)
         ;
 
         
     
     
-            var polygon_5d4f32826b5e50fefeb6c17d4b5fcdc4 = L.polygon(
+            var polygon_19a524a8d7b63e89aa2f73081216eef8 = L.polygon(
                 [[34.92647493584645, 33.43688964843751], [34.912962495216966, 33.57971191406251], [34.867904962568744, 33.48632812500001]],
                 {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
-            ).addTo(map_2134a761029d37a30cb4ee46f19e4551);
+            ).addTo(map_2e1897a1a91cbd800abe7b620fc7db47);
         
     
-        var popup_967f3d2fe5d75c0224876f8070625171 = L.popup({"maxWidth": 500});
+        var popup_6d2ee068bdbc2d9da9db08b47998efda = L.popup({"maxWidth": 500});
 
         
-            var html_78632937af157b2fdf95e6f78569ac9e = $(`<div id="html_78632937af157b2fdf95e6f78569ac9e" style="width: 100.0%; height: 100.0%;">         <!DOCTYPE html>         <html>         <center>         <body>         <table style="height: 150px; width: 500px;">             <tbody>                 <tr>                     <td style="background-color: blue"><span style="color: white">StartDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-23</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">EndDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-07-01</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">Coordinates</span></td>                     <td style="background-color: white"><span style="color: blue">[{"lat": 34.92647493584645, "lng": 33.43688964843751}, {"lat": 34.912962495216966, "lng": 33.57971191406251}, {"lat": 34.867904962568744, "lng": 33.48632812500001}]</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">ID</span></td>                     <td style="background-color: white"><span style="color: blue">26</span></td>                 </tr>                 <tr>                     <a href="/statusSpecific" target="_top"><button>See Status</button></a>                     <a href="/contextSpecific" target="_top"><button>See Contextual Information</button></a>                 </tr>             </tbody>         </table>         </center>         </html>     </div>`)[0];
-            popup_967f3d2fe5d75c0224876f8070625171.setContent(html_78632937af157b2fdf95e6f78569ac9e);
+            var html_d58970441fbb1965d1801817590b9b2a = $(`<div id="html_d58970441fbb1965d1801817590b9b2a" style="width: 100.0%; height: 100.0%;">         <!DOCTYPE html>         <html>         <center>         <body>         <table style="height: 150px; width: 500px;">             <tbody>                 <tr>                     <td style="background-color: blue"><span style="color: white">StartDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-23</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">EndDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-07-01</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">Coordinates</span></td>                     <td style="background-color: white"><span style="color: blue">[{"lat": 34.92647493584645, "lng": 33.43688964843751}, {"lat": 34.912962495216966, "lng": 33.57971191406251}, {"lat": 34.867904962568744, "lng": 33.48632812500001}]</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">ID</span></td>                     <td style="background-color: white"><span style="color: blue">26</span></td>                 </tr>                 <tr>                     <a href="/statusSpecific" target="_top"><button>See Status</button></a>                     <a href="/contextSpecific" target="_top"><button>See Contextual Information</button></a>                 </tr>             </tbody>         </table>         </center>         </html>     </div>`)[0];
+            popup_6d2ee068bdbc2d9da9db08b47998efda.setContent(html_d58970441fbb1965d1801817590b9b2a);
         
 
-        polygon_5d4f32826b5e50fefeb6c17d4b5fcdc4.bindPopup(popup_967f3d2fe5d75c0224876f8070625171)
+        polygon_19a524a8d7b63e89aa2f73081216eef8.bindPopup(popup_6d2ee068bdbc2d9da9db08b47998efda)
         ;
 
         
     
     
-            var polygon_c454cfd3f0eb91996b9f9877ff2907e1 = L.polygon(
+            var polygon_29817c12c7fa443dc5fa42e46fbe014e = L.polygon(
                 [[34.80929324176267, 32.83813476562501], [34.79576153473033, 32.89855957031251], [34.7461262752594, 32.89855957031251]],
                 {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
-            ).addTo(map_2134a761029d37a30cb4ee46f19e4551);
+            ).addTo(map_2e1897a1a91cbd800abe7b620fc7db47);
         
     
-        var popup_b013ea4ce609a4940d48c3cc40485e86 = L.popup({"maxWidth": 500});
+        var popup_c64686fc2934453af4fbf251d62d87c9 = L.popup({"maxWidth": 500});
 
         
-            var html_c0b9a8fc3157c2b273c73908493e11e6 = $(`<div id="html_c0b9a8fc3157c2b273c73908493e11e6" style="width: 100.0%; height: 100.0%;">         <!DOCTYPE html>         <html>         <center>         <body>         <table style="height: 150px; width: 500px;">             <tbody>                 <tr>                     <td style="background-color: blue"><span style="color: white">StartDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-26</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">EndDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-07-03</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">Coordinates</span></td>                     <td style="background-color: white"><span style="color: blue">[{"lat": 34.80929324176267, "lng": 32.83813476562501}, {"lat": 34.79576153473033, "lng": 32.89855957031251}, {"lat": 34.7461262752594, "lng": 32.89855957031251}]</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">ID</span></td>                     <td style="background-color: white"><span style="color: blue">27</span></td>                 </tr>                 <tr>                     <a href="/statusSpecific" target="_top"><button>See Status</button></a>                     <a href="/contextSpecific" target="_top"><button>See Contextual Information</button></a>                 </tr>             </tbody>         </table>         </center>         </html>     </div>`)[0];
-            popup_b013ea4ce609a4940d48c3cc40485e86.setContent(html_c0b9a8fc3157c2b273c73908493e11e6);
+            var html_52dac6ccc965f496da37ef5b90f02244 = $(`<div id="html_52dac6ccc965f496da37ef5b90f02244" style="width: 100.0%; height: 100.0%;">         <!DOCTYPE html>         <html>         <center>         <body>         <table style="height: 150px; width: 500px;">             <tbody>                 <tr>                     <td style="background-color: blue"><span style="color: white">StartDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-26</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">EndDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-07-03</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">Coordinates</span></td>                     <td style="background-color: white"><span style="color: blue">[{"lat": 34.80929324176267, "lng": 32.83813476562501}, {"lat": 34.79576153473033, "lng": 32.89855957031251}, {"lat": 34.7461262752594, "lng": 32.89855957031251}]</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">ID</span></td>                     <td style="background-color: white"><span style="color: blue">27</span></td>                 </tr>                 <tr>                     <a href="/statusSpecific" target="_top"><button>See Status</button></a>                     <a href="/contextSpecific" target="_top"><button>See Contextual Information</button></a>                 </tr>             </tbody>         </table>         </center>         </html>     </div>`)[0];
+            popup_c64686fc2934453af4fbf251d62d87c9.setContent(html_52dac6ccc965f496da37ef5b90f02244);
         
 
-        polygon_c454cfd3f0eb91996b9f9877ff2907e1.bindPopup(popup_b013ea4ce609a4940d48c3cc40485e86)
+        polygon_29817c12c7fa443dc5fa42e46fbe014e.bindPopup(popup_c64686fc2934453af4fbf251d62d87c9)
         ;
 
         
     
     
-            var polygon_9f563fbd871306ff680728d93689e2ca = L.polygon(
+            var polygon_20b6a21a761db5c82836e537bd72393f = L.polygon(
                 [[34.79125047210742, 32.65686035156251], [34.76417891445512, 32.72827148437501], [34.70097741472011, 32.67883300781251]],
                 {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
-            ).addTo(map_2134a761029d37a30cb4ee46f19e4551);
+            ).addTo(map_2e1897a1a91cbd800abe7b620fc7db47);
         
     
-        var popup_90b351bc3f4c736867f8409bdfd6ba88 = L.popup({"maxWidth": 500});
+        var popup_0581066225c7ce91de1a9c2d743462b4 = L.popup({"maxWidth": 500});
 
         
-            var html_0e5da51091e203981ed810b0e87e36ba = $(`<div id="html_0e5da51091e203981ed810b0e87e36ba" style="width: 100.0%; height: 100.0%;">         <!DOCTYPE html>         <html>         <center>         <body>         <table style="height: 150px; width: 500px;">             <tbody>                 <tr>                     <td style="background-color: blue"><span style="color: white">StartDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-22</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">EndDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-24</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">Coordinates</span></td>                     <td style="background-color: white"><span style="color: blue">[{"lat": 34.79125047210742, "lng": 32.65686035156251}, {"lat": 34.76417891445512, "lng": 32.72827148437501}, {"lat": 34.70097741472011, "lng": 32.67883300781251}]</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">ID</span></td>                     <td style="background-color: white"><span style="color: blue">28</span></td>                 </tr>                 <tr>                     <a href="/statusSpecific" target="_top"><button>See Status</button></a>                     <a href="/contextSpecific" target="_top"><button>See Contextual Information</button></a>                 </tr>             </tbody>         </table>         </center>         </html>     </div>`)[0];
-            popup_90b351bc3f4c736867f8409bdfd6ba88.setContent(html_0e5da51091e203981ed810b0e87e36ba);
+            var html_378d57caf9fdbc2605d623422d3ecd97 = $(`<div id="html_378d57caf9fdbc2605d623422d3ecd97" style="width: 100.0%; height: 100.0%;">         <!DOCTYPE html>         <html>         <center>         <body>         <table style="height: 150px; width: 500px;">             <tbody>                 <tr>                     <td style="background-color: blue"><span style="color: white">StartDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-22</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">EndDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-24</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">Coordinates</span></td>                     <td style="background-color: white"><span style="color: blue">[{"lat": 34.79125047210742, "lng": 32.65686035156251}, {"lat": 34.76417891445512, "lng": 32.72827148437501}, {"lat": 34.70097741472011, "lng": 32.67883300781251}]</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">ID</span></td>                     <td style="background-color: white"><span style="color: blue">28</span></td>                 </tr>                 <tr>                     <a href="/statusSpecific" target="_top"><button>See Status</button></a>                     <a href="/contextSpecific" target="_top"><button>See Contextual Information</button></a>                 </tr>             </tbody>         </table>         </center>         </html>     </div>`)[0];
+            popup_0581066225c7ce91de1a9c2d743462b4.setContent(html_378d57caf9fdbc2605d623422d3ecd97);
         
 
-        polygon_9f563fbd871306ff680728d93689e2ca.bindPopup(popup_90b351bc3f4c736867f8409bdfd6ba88)
+        polygon_20b6a21a761db5c82836e537bd72393f.bindPopup(popup_0581066225c7ce91de1a9c2d743462b4)
         ;
 
         
     
     
-            var polygon_8aeb58596241df43060efc40b0ebe587 = L.polygon(
+            var polygon_8ade107fcfa381f27e6f8bc6ac2983bb = L.polygon(
                 [[34.84987503195418, 33.08532714843751], [34.908457853981396, 33.30505371093751], [34.8183131456094, 33.30505371093751], [34.80929324176267, 33.20068359375001]],
                 {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
-            ).addTo(map_2134a761029d37a30cb4ee46f19e4551);
+            ).addTo(map_2e1897a1a91cbd800abe7b620fc7db47);
         
     
-        var popup_867cd5cd262885003a8da5c939a6eb24 = L.popup({"maxWidth": 500});
+        var popup_c9b0e37251bb279312b674689aa22b6d = L.popup({"maxWidth": 500});
 
         
-            var html_b6edd93090fc57a610de5b040c6b9db7 = $(`<div id="html_b6edd93090fc57a610de5b040c6b9db7" style="width: 100.0%; height: 100.0%;">         <!DOCTYPE html>         <html>         <center>         <body>         <table style="height: 150px; width: 500px;">             <tbody>                 <tr>                     <td style="background-color: blue"><span style="color: white">StartDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-15</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">EndDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-17</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">Coordinates</span></td>                     <td style="background-color: white"><span style="color: blue">[{"lat": 34.84987503195418, "lng": 33.08532714843751}, {"lat": 34.908457853981396, "lng": 33.30505371093751}, {"lat": 34.8183131456094, "lng": 33.30505371093751}, {"lat": 34.80929324176267, "lng": 33.20068359375001}]</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">ID</span></td>                     <td style="background-color: white"><span style="color: blue">21</span></td>                 </tr>                 <tr>                     <a href="/statusSpecific" target="_top"><button>See Status</button></a>                     <a href="/contextSpecific" target="_top"><button>See Contextual Information</button></a>                 </tr>             </tbody>         </table>         </center>         </html>     </div>`)[0];
-            popup_867cd5cd262885003a8da5c939a6eb24.setContent(html_b6edd93090fc57a610de5b040c6b9db7);
+            var html_2e799720fe8de1a30b30b1fb632f9ece = $(`<div id="html_2e799720fe8de1a30b30b1fb632f9ece" style="width: 100.0%; height: 100.0%;">         <!DOCTYPE html>         <html>         <center>         <body>         <table style="height: 150px; width: 500px;">             <tbody>                 <tr>                     <td style="background-color: blue"><span style="color: white">StartDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-15</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">EndDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-17</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">Coordinates</span></td>                     <td style="background-color: white"><span style="color: blue">[{"lat": 34.84987503195418, "lng": 33.08532714843751}, {"lat": 34.908457853981396, "lng": 33.30505371093751}, {"lat": 34.8183131456094, "lng": 33.30505371093751}, {"lat": 34.80929324176267, "lng": 33.20068359375001}]</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">ID</span></td>                     <td style="background-color: white"><span style="color: blue">21</span></td>                 </tr>                 <tr>                     <a href="/statusSpecific" target="_top"><button>See Status</button></a>                     <a href="/contextSpecific" target="_top"><button>See Contextual Information</button></a>                 </tr>             </tbody>         </table>         </center>         </html>     </div>`)[0];
+            popup_c9b0e37251bb279312b674689aa22b6d.setContent(html_2e799720fe8de1a30b30b1fb632f9ece);
         
 
-        polygon_8aeb58596241df43060efc40b0ebe587.bindPopup(popup_867cd5cd262885003a8da5c939a6eb24)
+        polygon_8ade107fcfa381f27e6f8bc6ac2983bb.bindPopup(popup_c9b0e37251bb279312b674689aa22b6d)
         ;
 
         
     
     
-            var polygon_fed138367d93c1f0d9ad84ef78a4fc36 = L.polygon(
+            var polygon_86e94e70b99ff713147d125fd89ba20c = L.polygon(
                 [[34.95349314197422, 32.74475097656251], [35.007502842952896, 33.07983398437501], [34.827332061981586, 32.90405273437501]],
                 {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
-            ).addTo(map_2134a761029d37a30cb4ee46f19e4551);
+            ).addTo(map_2e1897a1a91cbd800abe7b620fc7db47);
         
     
-        var popup_5e2b264ad0a8ee84717119806112e64a = L.popup({"maxWidth": 500});
+        var popup_025d0edc2b54932c9bdbd2c1b45947e0 = L.popup({"maxWidth": 500});
 
         
-            var html_c476fbb7f514f5502d89422bcdc8c16d = $(`<div id="html_c476fbb7f514f5502d89422bcdc8c16d" style="width: 100.0%; height: 100.0%;">         <!DOCTYPE html>         <html>         <center>         <body>         <table style="height: 150px; width: 500px;">             <tbody>                 <tr>                     <td style="background-color: blue"><span style="color: white">StartDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-10</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">EndDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-16</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">Coordinates</span></td>                     <td style="background-color: white"><span style="color: blue">[{"lat": 34.95349314197422, "lng": 32.74475097656251}, {"lat": 35.007502842952896, "lng": 33.07983398437501}, {"lat": 34.827332061981586, "lng": 32.90405273437501}]</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">ID</span></td>                     <td style="background-color: white"><span style="color: blue">22</span></td>                 </tr>                 <tr>                     <a href="/statusSpecific" target="_top"><button>See Status</button></a>                     <a href="/contextSpecific" target="_top"><button>See Contextual Information</button></a>                 </tr>             </tbody>         </table>         </center>         </html>     </div>`)[0];
-            popup_5e2b264ad0a8ee84717119806112e64a.setContent(html_c476fbb7f514f5502d89422bcdc8c16d);
+            var html_0b2585c3c598d9e7e148f41155e772d8 = $(`<div id="html_0b2585c3c598d9e7e148f41155e772d8" style="width: 100.0%; height: 100.0%;">         <!DOCTYPE html>         <html>         <center>         <body>         <table style="height: 150px; width: 500px;">             <tbody>                 <tr>                     <td style="background-color: blue"><span style="color: white">StartDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-10</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">EndDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-16</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">Coordinates</span></td>                     <td style="background-color: white"><span style="color: blue">[{"lat": 34.95349314197422, "lng": 32.74475097656251}, {"lat": 35.007502842952896, "lng": 33.07983398437501}, {"lat": 34.827332061981586, "lng": 32.90405273437501}]</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">ID</span></td>                     <td style="background-color: white"><span style="color: blue">22</span></td>                 </tr>                 <tr>                     <a href="/statusSpecific" target="_top"><button>See Status</button></a>                     <a href="/contextSpecific" target="_top"><button>See Contextual Information</button></a>                 </tr>             </tbody>         </table>         </center>         </html>     </div>`)[0];
+            popup_025d0edc2b54932c9bdbd2c1b45947e0.setContent(html_0b2585c3c598d9e7e148f41155e772d8);
         
 
-        polygon_fed138367d93c1f0d9ad84ef78a4fc36.bindPopup(popup_5e2b264ad0a8ee84717119806112e64a)
+        polygon_86e94e70b99ff713147d125fd89ba20c.bindPopup(popup_025d0edc2b54932c9bdbd2c1b45947e0)
         ;
 
         
     
     
-            var polygon_032b61a875e3036d2c6de343685254e6 = L.polygon(
+            var polygon_74541fb1e97c9c4c2ba11a1f3db9def2 = L.polygon(
                 [[35.03899204678081, 33.16223144531251], [35.04798673426734, 33.42041015625001], [34.94448806230625, 33.36547851562501], [34.962497232449145, 33.16772460937501]],
                 {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
-            ).addTo(map_2134a761029d37a30cb4ee46f19e4551);
+            ).addTo(map_2e1897a1a91cbd800abe7b620fc7db47);
         
     
-        var popup_9817b355105a517f6ff327aaff367a13 = L.popup({"maxWidth": 500});
+        var popup_d42b0dd2e7b3ecc65dc1136087c075b6 = L.popup({"maxWidth": 500});
 
         
-            var html_4ef0a33511a4acfd37afe05f955a536c = $(`<div id="html_4ef0a33511a4acfd37afe05f955a536c" style="width: 100.0%; height: 100.0%;">         <!DOCTYPE html>         <html>         <center>         <body>         <table style="height: 150px; width: 500px;">             <tbody>                 <tr>                     <td style="background-color: blue"><span style="color: white">StartDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-16</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">EndDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-25</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">Coordinates</span></td>                     <td style="background-color: white"><span style="color: blue">[{"lat": 35.03899204678081, "lng": 33.16223144531251}, {"lat": 35.04798673426734, "lng": 33.42041015625001}, {"lat": 34.94448806230625, "lng": 33.36547851562501}, {"lat": 34.962497232449145, "lng": 33.16772460937501}]</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">ID</span></td>                     <td style="background-color: white"><span style="color: blue">23</span></td>                 </tr>                 <tr>                     <a href="/statusSpecific" target="_top"><button>See Status</button></a>                     <a href="/contextSpecific" target="_top"><button>See Contextual Information</button></a>                 </tr>             </tbody>         </table>         </center>         </html>     </div>`)[0];
-            popup_9817b355105a517f6ff327aaff367a13.setContent(html_4ef0a33511a4acfd37afe05f955a536c);
+            var html_15532173e47730f6aecf14a10a2d5e32 = $(`<div id="html_15532173e47730f6aecf14a10a2d5e32" style="width: 100.0%; height: 100.0%;">         <!DOCTYPE html>         <html>         <center>         <body>         <table style="height: 150px; width: 500px;">             <tbody>                 <tr>                     <td style="background-color: blue"><span style="color: white">StartDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-16</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">EndDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-25</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">Coordinates</span></td>                     <td style="background-color: white"><span style="color: blue">[{"lat": 35.03899204678081, "lng": 33.16223144531251}, {"lat": 35.04798673426734, "lng": 33.42041015625001}, {"lat": 34.94448806230625, "lng": 33.36547851562501}, {"lat": 34.962497232449145, "lng": 33.16772460937501}]</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">ID</span></td>                     <td style="background-color: white"><span style="color: blue">23</span></td>                 </tr>                 <tr>                     <a href="/statusSpecific" target="_top"><button>See Status</button></a>                     <a href="/contextSpecific" target="_top"><button>See Contextual Information</button></a>                 </tr>             </tbody>         </table>         </center>         </html>     </div>`)[0];
+            popup_d42b0dd2e7b3ecc65dc1136087c075b6.setContent(html_15532173e47730f6aecf14a10a2d5e32);
         
 
-        polygon_032b61a875e3036d2c6de343685254e6.bindPopup(popup_9817b355105a517f6ff327aaff367a13)
+        polygon_74541fb1e97c9c4c2ba11a1f3db9def2.bindPopup(popup_d42b0dd2e7b3ecc65dc1136087c075b6)
         ;
 
         
     
     
-            var polygon_610802538216543b31ff01f48d22a350 = L.polygon(
+            var polygon_a09b8a594912a73d6228b6a0e5da5456 = L.polygon(
                 [[34.994003757575776, 32.50305175781251], [34.88142481679758, 32.65136718750001], [34.80929324176267, 32.51953125000001]],
                 {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
-            ).addTo(map_2134a761029d37a30cb4ee46f19e4551);
+            ).addTo(map_2e1897a1a91cbd800abe7b620fc7db47);
         
     
-        var popup_c232ef9383b3573640e6a9bfadc7ffe9 = L.popup({"maxWidth": 500});
+        var popup_7483cf5bbce31f0b82d8ecd5e46fb7b5 = L.popup({"maxWidth": 500});
 
         
-            var html_43c8e3c43fe61d765f328793d4b0885c = $(`<div id="html_43c8e3c43fe61d765f328793d4b0885c" style="width: 100.0%; height: 100.0%;">         <!DOCTYPE html>         <html>         <center>         <body>         <table style="height: 150px; width: 500px;">             <tbody>                 <tr>                     <td style="background-color: blue"><span style="color: white">StartDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-12</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">EndDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-18</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">Coordinates</span></td>                     <td style="background-color: white"><span style="color: blue">[{"lat": 34.994003757575776, "lng": 32.50305175781251}, {"lat": 34.88142481679758, "lng": 32.65136718750001}, {"lat": 34.80929324176267, "lng": 32.51953125000001}]</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">ID</span></td>                     <td style="background-color: white"><span style="color: blue">24</span></td>                 </tr>                 <tr>                     <a href="/statusSpecific" target="_top"><button>See Status</button></a>                     <a href="/contextSpecific" target="_top"><button>See Contextual Information</button></a>                 </tr>             </tbody>         </table>         </center>         </html>     </div>`)[0];
-            popup_c232ef9383b3573640e6a9bfadc7ffe9.setContent(html_43c8e3c43fe61d765f328793d4b0885c);
+            var html_d68bcdca76556c036adc3400f7255a4e = $(`<div id="html_d68bcdca76556c036adc3400f7255a4e" style="width: 100.0%; height: 100.0%;">         <!DOCTYPE html>         <html>         <center>         <body>         <table style="height: 150px; width: 500px;">             <tbody>                 <tr>                     <td style="background-color: blue"><span style="color: white">StartDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-12</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">EndDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-18</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">Coordinates</span></td>                     <td style="background-color: white"><span style="color: blue">[{"lat": 34.994003757575776, "lng": 32.50305175781251}, {"lat": 34.88142481679758, "lng": 32.65136718750001}, {"lat": 34.80929324176267, "lng": 32.51953125000001}]</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">ID</span></td>                     <td style="background-color: white"><span style="color: blue">24</span></td>                 </tr>                 <tr>                     <a href="/statusSpecific" target="_top"><button>See Status</button></a>                     <a href="/contextSpecific" target="_top"><button>See Contextual Information</button></a>                 </tr>             </tbody>         </table>         </center>         </html>     </div>`)[0];
+            popup_7483cf5bbce31f0b82d8ecd5e46fb7b5.setContent(html_d68bcdca76556c036adc3400f7255a4e);
         
 
-        polygon_610802538216543b31ff01f48d22a350.bindPopup(popup_c232ef9383b3573640e6a9bfadc7ffe9)
+        polygon_a09b8a594912a73d6228b6a0e5da5456.bindPopup(popup_7483cf5bbce31f0b82d8ecd5e46fb7b5)
         ;
 
         
     
     
-            var polygon_77f75c1c8a13dfb6545fb7ff3bc5c110 = L.polygon(
+            var polygon_4dedb9aaa900f4db89bbd5d518e99411 = L.polygon(
                 [[35.088450570365396, 32.61291503906251], [35.092945313732635, 32.83264160156251], [35.0254981588326, 32.71179199218751]],
                 {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
-            ).addTo(map_2134a761029d37a30cb4ee46f19e4551);
+            ).addTo(map_2e1897a1a91cbd800abe7b620fc7db47);
         
     
-        var popup_3d24d4dd253cdc3714f3489ce9896dab = L.popup({"maxWidth": 500});
+        var popup_b0cc0ad5311fdc56b3edf8b42a1fedb3 = L.popup({"maxWidth": 500});
 
         
-            var html_07bbb9e6961e0238fe100bf4b7407399 = $(`<div id="html_07bbb9e6961e0238fe100bf4b7407399" style="width: 100.0%; height: 100.0%;">         <!DOCTYPE html>         <html>         <center>         <body>         <table style="height: 150px; width: 500px;">             <tbody>                 <tr>                     <td style="background-color: blue"><span style="color: white">StartDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-15</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">EndDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-24</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">Coordinates</span></td>                     <td style="background-color: white"><span style="color: blue">[{"lat": 35.088450570365396, "lng": 32.61291503906251}, {"lat": 35.092945313732635, "lng": 32.83264160156251}, {"lat": 35.0254981588326, "lng": 32.71179199218751}]</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">ID</span></td>                     <td style="background-color: white"><span style="color: blue">25</span></td>                 </tr>                 <tr>                     <a href="/statusSpecific" target="_top"><button>See Status</button></a>                     <a href="/contextSpecific" target="_top"><button>See Contextual Information</button></a>                 </tr>             </tbody>         </table>         </center>         </html>     </div>`)[0];
-            popup_3d24d4dd253cdc3714f3489ce9896dab.setContent(html_07bbb9e6961e0238fe100bf4b7407399);
+            var html_31a169ad99c24dc4d049e5a442136557 = $(`<div id="html_31a169ad99c24dc4d049e5a442136557" style="width: 100.0%; height: 100.0%;">         <!DOCTYPE html>         <html>         <center>         <body>         <table style="height: 150px; width: 500px;">             <tbody>                 <tr>                     <td style="background-color: blue"><span style="color: white">StartDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-15</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">EndDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-24</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">Coordinates</span></td>                     <td style="background-color: white"><span style="color: blue">[{"lat": 35.088450570365396, "lng": 32.61291503906251}, {"lat": 35.092945313732635, "lng": 32.83264160156251}, {"lat": 35.0254981588326, "lng": 32.71179199218751}]</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">ID</span></td>                     <td style="background-color: white"><span style="color: blue">25</span></td>                 </tr>                 <tr>                     <a href="/statusSpecific" target="_top"><button>See Status</button></a>                     <a href="/contextSpecific" target="_top"><button>See Contextual Information</button></a>                 </tr>             </tbody>         </table>         </center>         </html>     </div>`)[0];
+            popup_b0cc0ad5311fdc56b3edf8b42a1fedb3.setContent(html_31a169ad99c24dc4d049e5a442136557);
         
 
-        polygon_77f75c1c8a13dfb6545fb7ff3bc5c110.bindPopup(popup_3d24d4dd253cdc3714f3489ce9896dab)
+        polygon_4dedb9aaa900f4db89bbd5d518e99411.bindPopup(popup_b0cc0ad5311fdc56b3edf8b42a1fedb3)
         ;
 
         
     
     
-            var polygon_7710248dd282d9198b189cec64b4259b = L.polygon(
+            var polygon_03d79756030500753285d03a7fa46aae = L.polygon(
                 [[34.92647493584645, 33.43688964843751], [34.912962495216966, 33.57971191406251], [34.867904962568744, 33.48632812500001]],
                 {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
-            ).addTo(map_2134a761029d37a30cb4ee46f19e4551);
+            ).addTo(map_2e1897a1a91cbd800abe7b620fc7db47);
         
     
-        var popup_317d339d00a800e11acfd25948464028 = L.popup({"maxWidth": 500});
+        var popup_5aaa85575d0a4bea7928162b8bc3faa9 = L.popup({"maxWidth": 500});
 
         
-            var html_8dae47eb69f43535339992fa09ddbc1a = $(`<div id="html_8dae47eb69f43535339992fa09ddbc1a" style="width: 100.0%; height: 100.0%;">         <!DOCTYPE html>         <html>         <center>         <body>         <table style="height: 150px; width: 500px;">             <tbody>                 <tr>                     <td style="background-color: blue"><span style="color: white">StartDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-23</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">EndDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-07-01</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">Coordinates</span></td>                     <td style="background-color: white"><span style="color: blue">[{"lat": 34.92647493584645, "lng": 33.43688964843751}, {"lat": 34.912962495216966, "lng": 33.57971191406251}, {"lat": 34.867904962568744, "lng": 33.48632812500001}]</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">ID</span></td>                     <td style="background-color: white"><span style="color: blue">26</span></td>                 </tr>                 <tr>                     <a href="/statusSpecific" target="_top"><button>See Status</button></a>                     <a href="/contextSpecific" target="_top"><button>See Contextual Information</button></a>                 </tr>             </tbody>         </table>         </center>         </html>     </div>`)[0];
-            popup_317d339d00a800e11acfd25948464028.setContent(html_8dae47eb69f43535339992fa09ddbc1a);
+            var html_96ed89bf722371de604a37367d8ca9da = $(`<div id="html_96ed89bf722371de604a37367d8ca9da" style="width: 100.0%; height: 100.0%;">         <!DOCTYPE html>         <html>         <center>         <body>         <table style="height: 150px; width: 500px;">             <tbody>                 <tr>                     <td style="background-color: blue"><span style="color: white">StartDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-23</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">EndDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-07-01</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">Coordinates</span></td>                     <td style="background-color: white"><span style="color: blue">[{"lat": 34.92647493584645, "lng": 33.43688964843751}, {"lat": 34.912962495216966, "lng": 33.57971191406251}, {"lat": 34.867904962568744, "lng": 33.48632812500001}]</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">ID</span></td>                     <td style="background-color: white"><span style="color: blue">26</span></td>                 </tr>                 <tr>                     <a href="/statusSpecific" target="_top"><button>See Status</button></a>                     <a href="/contextSpecific" target="_top"><button>See Contextual Information</button></a>                 </tr>             </tbody>         </table>         </center>         </html>     </div>`)[0];
+            popup_5aaa85575d0a4bea7928162b8bc3faa9.setContent(html_96ed89bf722371de604a37367d8ca9da);
         
 
-        polygon_7710248dd282d9198b189cec64b4259b.bindPopup(popup_317d339d00a800e11acfd25948464028)
+        polygon_03d79756030500753285d03a7fa46aae.bindPopup(popup_5aaa85575d0a4bea7928162b8bc3faa9)
         ;
 
         
     
     
-            var polygon_dc56795e50e3c6f6f1fb4ca201b57d8f = L.polygon(
+            var polygon_03ca1aecf521d18bac3350fdd2107579 = L.polygon(
                 [[34.80929324176267, 32.83813476562501], [34.79576153473033, 32.89855957031251], [34.7461262752594, 32.89855957031251]],
                 {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
-            ).addTo(map_2134a761029d37a30cb4ee46f19e4551);
+            ).addTo(map_2e1897a1a91cbd800abe7b620fc7db47);
         
     
-        var popup_09a4fcfc538d8e796bdc7bca16d9bec7 = L.popup({"maxWidth": 500});
+        var popup_524eaafffc01aa63ff4ec92e7713b3eb = L.popup({"maxWidth": 500});
 
         
-            var html_fabd3bc194b45ef3b87cfadf48e3e373 = $(`<div id="html_fabd3bc194b45ef3b87cfadf48e3e373" style="width: 100.0%; height: 100.0%;">         <!DOCTYPE html>         <html>         <center>         <body>         <table style="height: 150px; width: 500px;">             <tbody>                 <tr>                     <td style="background-color: blue"><span style="color: white">StartDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-26</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">EndDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-07-03</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">Coordinates</span></td>                     <td style="background-color: white"><span style="color: blue">[{"lat": 34.80929324176267, "lng": 32.83813476562501}, {"lat": 34.79576153473033, "lng": 32.89855957031251}, {"lat": 34.7461262752594, "lng": 32.89855957031251}]</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">ID</span></td>                     <td style="background-color: white"><span style="color: blue">27</span></td>                 </tr>                 <tr>                     <a href="/statusSpecific" target="_top"><button>See Status</button></a>                     <a href="/contextSpecific" target="_top"><button>See Contextual Information</button></a>                 </tr>             </tbody>         </table>         </center>         </html>     </div>`)[0];
-            popup_09a4fcfc538d8e796bdc7bca16d9bec7.setContent(html_fabd3bc194b45ef3b87cfadf48e3e373);
+            var html_f5ab0b21a54a92bc659cc0fdeeea4195 = $(`<div id="html_f5ab0b21a54a92bc659cc0fdeeea4195" style="width: 100.0%; height: 100.0%;">         <!DOCTYPE html>         <html>         <center>         <body>         <table style="height: 150px; width: 500px;">             <tbody>                 <tr>                     <td style="background-color: blue"><span style="color: white">StartDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-26</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">EndDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-07-03</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">Coordinates</span></td>                     <td style="background-color: white"><span style="color: blue">[{"lat": 34.80929324176267, "lng": 32.83813476562501}, {"lat": 34.79576153473033, "lng": 32.89855957031251}, {"lat": 34.7461262752594, "lng": 32.89855957031251}]</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">ID</span></td>                     <td style="background-color: white"><span style="color: blue">27</span></td>                 </tr>                 <tr>                     <a href="/statusSpecific" target="_top"><button>See Status</button></a>                     <a href="/contextSpecific" target="_top"><button>See Contextual Information</button></a>                 </tr>             </tbody>         </table>         </center>         </html>     </div>`)[0];
+            popup_524eaafffc01aa63ff4ec92e7713b3eb.setContent(html_f5ab0b21a54a92bc659cc0fdeeea4195);
         
 
-        polygon_dc56795e50e3c6f6f1fb4ca201b57d8f.bindPopup(popup_09a4fcfc538d8e796bdc7bca16d9bec7)
+        polygon_03ca1aecf521d18bac3350fdd2107579.bindPopup(popup_524eaafffc01aa63ff4ec92e7713b3eb)
         ;
 
         
     
     
-            var polygon_2eb7a69dc378dd5f264b68edca033c4f = L.polygon(
+            var polygon_ecc803fe71d3ecbc7351c6401d65268d = L.polygon(
                 [[34.79125047210742, 32.65686035156251], [34.76417891445512, 32.72827148437501], [34.70097741472011, 32.67883300781251]],
                 {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
-            ).addTo(map_2134a761029d37a30cb4ee46f19e4551);
+            ).addTo(map_2e1897a1a91cbd800abe7b620fc7db47);
         
     
-        var popup_b9d4b8e2dad9129d666f24ce64d52d7a = L.popup({"maxWidth": 500});
+        var popup_3683b4011ef6c8fa80692eb1eb3bddc9 = L.popup({"maxWidth": 500});
 
         
-            var html_46050a40e5110c30ef77321b9a08266f = $(`<div id="html_46050a40e5110c30ef77321b9a08266f" style="width: 100.0%; height: 100.0%;">         <!DOCTYPE html>         <html>         <center>         <body>         <table style="height: 150px; width: 500px;">             <tbody>                 <tr>                     <td style="background-color: blue"><span style="color: white">StartDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-22</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">EndDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-24</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">Coordinates</span></td>                     <td style="background-color: white"><span style="color: blue">[{"lat": 34.79125047210742, "lng": 32.65686035156251}, {"lat": 34.76417891445512, "lng": 32.72827148437501}, {"lat": 34.70097741472011, "lng": 32.67883300781251}]</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">ID</span></td>                     <td style="background-color: white"><span style="color: blue">28</span></td>                 </tr>                 <tr>                     <a href="/statusSpecific" target="_top"><button>See Status</button></a>                     <a href="/contextSpecific" target="_top"><button>See Contextual Information</button></a>                 </tr>             </tbody>         </table>         </center>         </html>     </div>`)[0];
-            popup_b9d4b8e2dad9129d666f24ce64d52d7a.setContent(html_46050a40e5110c30ef77321b9a08266f);
+            var html_2805e1d0d015688422191bec24cb4e61 = $(`<div id="html_2805e1d0d015688422191bec24cb4e61" style="width: 100.0%; height: 100.0%;">         <!DOCTYPE html>         <html>         <center>         <body>         <table style="height: 150px; width: 500px;">             <tbody>                 <tr>                     <td style="background-color: blue"><span style="color: white">StartDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-22</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">EndDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-24</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">Coordinates</span></td>                     <td style="background-color: white"><span style="color: blue">[{"lat": 34.79125047210742, "lng": 32.65686035156251}, {"lat": 34.76417891445512, "lng": 32.72827148437501}, {"lat": 34.70097741472011, "lng": 32.67883300781251}]</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">ID</span></td>                     <td style="background-color: white"><span style="color: blue">28</span></td>                 </tr>                 <tr>                     <a href="/statusSpecific" target="_top"><button>See Status</button></a>                     <a href="/contextSpecific" target="_top"><button>See Contextual Information</button></a>                 </tr>             </tbody>         </table>         </center>         </html>     </div>`)[0];
+            popup_3683b4011ef6c8fa80692eb1eb3bddc9.setContent(html_2805e1d0d015688422191bec24cb4e61);
         
 
-        polygon_2eb7a69dc378dd5f264b68edca033c4f.bindPopup(popup_b9d4b8e2dad9129d666f24ce64d52d7a)
-        ;
-
-        
-    
-    
-            var polygon_a7d6652bf359a6d895503086d381e6e6 = L.polygon(
-                [[34.84987503195418, 33.08532714843751], [34.908457853981396, 33.30505371093751], [34.8183131456094, 33.30505371093751], [34.80929324176267, 33.20068359375001]],
-                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
-            ).addTo(map_2134a761029d37a30cb4ee46f19e4551);
-        
-    
-        var popup_8cfae5f4d4a40e4f9570b78246c37ac7 = L.popup({"maxWidth": 500});
-
-        
-            var html_fa3694ea26e6f0369d43f9c05614c888 = $(`<div id="html_fa3694ea26e6f0369d43f9c05614c888" style="width: 100.0%; height: 100.0%;">         <!DOCTYPE html>         <html>         <center>         <body>         <table style="height: 150px; width: 500px;">             <tbody>                 <tr>                     <td style="background-color: blue"><span style="color: white">StartDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-15</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">EndDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-17</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">Coordinates</span></td>                     <td style="background-color: white"><span style="color: blue">[{"lat": 34.84987503195418, "lng": 33.08532714843751}, {"lat": 34.908457853981396, "lng": 33.30505371093751}, {"lat": 34.8183131456094, "lng": 33.30505371093751}, {"lat": 34.80929324176267, "lng": 33.20068359375001}]</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">ID</span></td>                     <td style="background-color: white"><span style="color: blue">21</span></td>                 </tr>                 <tr>                     <a href="/statusSpecific" target="_top"><button>See Status</button></a>                     <a href="/contextSpecific" target="_top"><button>See Contextual Information</button></a>                 </tr>             </tbody>         </table>         </center>         </html>     </div>`)[0];
-            popup_8cfae5f4d4a40e4f9570b78246c37ac7.setContent(html_fa3694ea26e6f0369d43f9c05614c888);
-        
-
-        polygon_a7d6652bf359a6d895503086d381e6e6.bindPopup(popup_8cfae5f4d4a40e4f9570b78246c37ac7)
-        ;
-
-        
-    
-    
-            var polygon_4b08f26c84aa73601cd65e1dad5e4ae9 = L.polygon(
-                [[34.95349314197422, 32.74475097656251], [35.007502842952896, 33.07983398437501], [34.827332061981586, 32.90405273437501]],
-                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
-            ).addTo(map_2134a761029d37a30cb4ee46f19e4551);
-        
-    
-        var popup_95418fee275898de2c34fcd5570f8721 = L.popup({"maxWidth": 500});
-
-        
-            var html_c4d5ba0b373d6041efa69dbd653fdac7 = $(`<div id="html_c4d5ba0b373d6041efa69dbd653fdac7" style="width: 100.0%; height: 100.0%;">         <!DOCTYPE html>         <html>         <center>         <body>         <table style="height: 150px; width: 500px;">             <tbody>                 <tr>                     <td style="background-color: blue"><span style="color: white">StartDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-10</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">EndDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-16</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">Coordinates</span></td>                     <td style="background-color: white"><span style="color: blue">[{"lat": 34.95349314197422, "lng": 32.74475097656251}, {"lat": 35.007502842952896, "lng": 33.07983398437501}, {"lat": 34.827332061981586, "lng": 32.90405273437501}]</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">ID</span></td>                     <td style="background-color: white"><span style="color: blue">22</span></td>                 </tr>                 <tr>                     <a href="/statusSpecific" target="_top"><button>See Status</button></a>                     <a href="/contextSpecific" target="_top"><button>See Contextual Information</button></a>                 </tr>             </tbody>         </table>         </center>         </html>     </div>`)[0];
-            popup_95418fee275898de2c34fcd5570f8721.setContent(html_c4d5ba0b373d6041efa69dbd653fdac7);
-        
-
-        polygon_4b08f26c84aa73601cd65e1dad5e4ae9.bindPopup(popup_95418fee275898de2c34fcd5570f8721)
-        ;
-
-        
-    
-    
-            var polygon_32b632d697adb4a87322ab7c622697b6 = L.polygon(
-                [[35.03899204678081, 33.16223144531251], [35.04798673426734, 33.42041015625001], [34.94448806230625, 33.36547851562501], [34.962497232449145, 33.16772460937501]],
-                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
-            ).addTo(map_2134a761029d37a30cb4ee46f19e4551);
-        
-    
-        var popup_7149125290dddc5b85d5a2c480350eee = L.popup({"maxWidth": 500});
-
-        
-            var html_75a5f2f6828f5e46da6cf476303d9790 = $(`<div id="html_75a5f2f6828f5e46da6cf476303d9790" style="width: 100.0%; height: 100.0%;">         <!DOCTYPE html>         <html>         <center>         <body>         <table style="height: 150px; width: 500px;">             <tbody>                 <tr>                     <td style="background-color: blue"><span style="color: white">StartDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-16</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">EndDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-25</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">Coordinates</span></td>                     <td style="background-color: white"><span style="color: blue">[{"lat": 35.03899204678081, "lng": 33.16223144531251}, {"lat": 35.04798673426734, "lng": 33.42041015625001}, {"lat": 34.94448806230625, "lng": 33.36547851562501}, {"lat": 34.962497232449145, "lng": 33.16772460937501}]</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">ID</span></td>                     <td style="background-color: white"><span style="color: blue">23</span></td>                 </tr>                 <tr>                     <a href="/statusSpecific" target="_top"><button>See Status</button></a>                     <a href="/contextSpecific" target="_top"><button>See Contextual Information</button></a>                 </tr>             </tbody>         </table>         </center>         </html>     </div>`)[0];
-            popup_7149125290dddc5b85d5a2c480350eee.setContent(html_75a5f2f6828f5e46da6cf476303d9790);
-        
-
-        polygon_32b632d697adb4a87322ab7c622697b6.bindPopup(popup_7149125290dddc5b85d5a2c480350eee)
-        ;
-
-        
-    
-    
-            var polygon_2c603826ab02af3dbd66b4c781f32437 = L.polygon(
-                [[34.994003757575776, 32.50305175781251], [34.88142481679758, 32.65136718750001], [34.80929324176267, 32.51953125000001]],
-                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
-            ).addTo(map_2134a761029d37a30cb4ee46f19e4551);
-        
-    
-        var popup_75d236c62514ffd8328c03025d82838e = L.popup({"maxWidth": 500});
-
-        
-            var html_0037c60d7d159792e5bd279a13d74d48 = $(`<div id="html_0037c60d7d159792e5bd279a13d74d48" style="width: 100.0%; height: 100.0%;">         <!DOCTYPE html>         <html>         <center>         <body>         <table style="height: 150px; width: 500px;">             <tbody>                 <tr>                     <td style="background-color: blue"><span style="color: white">StartDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-12</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">EndDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-18</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">Coordinates</span></td>                     <td style="background-color: white"><span style="color: blue">[{"lat": 34.994003757575776, "lng": 32.50305175781251}, {"lat": 34.88142481679758, "lng": 32.65136718750001}, {"lat": 34.80929324176267, "lng": 32.51953125000001}]</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">ID</span></td>                     <td style="background-color: white"><span style="color: blue">24</span></td>                 </tr>                 <tr>                     <a href="/statusSpecific" target="_top"><button>See Status</button></a>                     <a href="/contextSpecific" target="_top"><button>See Contextual Information</button></a>                 </tr>             </tbody>         </table>         </center>         </html>     </div>`)[0];
-            popup_75d236c62514ffd8328c03025d82838e.setContent(html_0037c60d7d159792e5bd279a13d74d48);
-        
-
-        polygon_2c603826ab02af3dbd66b4c781f32437.bindPopup(popup_75d236c62514ffd8328c03025d82838e)
-        ;
-
-        
-    
-    
-            var polygon_b59b5ce3ae2d33f9bb7395dfc538d4ed = L.polygon(
-                [[35.088450570365396, 32.61291503906251], [35.092945313732635, 32.83264160156251], [35.0254981588326, 32.71179199218751]],
-                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
-            ).addTo(map_2134a761029d37a30cb4ee46f19e4551);
-        
-    
-        var popup_dc04dfb4a7403e1319e4722c7b450fc1 = L.popup({"maxWidth": 500});
-
-        
-            var html_b33561fed9a65491e988b1f4a1ad0ce8 = $(`<div id="html_b33561fed9a65491e988b1f4a1ad0ce8" style="width: 100.0%; height: 100.0%;">         <!DOCTYPE html>         <html>         <center>         <body>         <table style="height: 150px; width: 500px;">             <tbody>                 <tr>                     <td style="background-color: blue"><span style="color: white">StartDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-15</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">EndDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-24</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">Coordinates</span></td>                     <td style="background-color: white"><span style="color: blue">[{"lat": 35.088450570365396, "lng": 32.61291503906251}, {"lat": 35.092945313732635, "lng": 32.83264160156251}, {"lat": 35.0254981588326, "lng": 32.71179199218751}]</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">ID</span></td>                     <td style="background-color: white"><span style="color: blue">25</span></td>                 </tr>                 <tr>                     <a href="/statusSpecific" target="_top"><button>See Status</button></a>                     <a href="/contextSpecific" target="_top"><button>See Contextual Information</button></a>                 </tr>             </tbody>         </table>         </center>         </html>     </div>`)[0];
-            popup_dc04dfb4a7403e1319e4722c7b450fc1.setContent(html_b33561fed9a65491e988b1f4a1ad0ce8);
-        
-
-        polygon_b59b5ce3ae2d33f9bb7395dfc538d4ed.bindPopup(popup_dc04dfb4a7403e1319e4722c7b450fc1)
-        ;
-
-        
-    
-    
-            var polygon_2bd7039053125adbb095bc3c74f6056c = L.polygon(
-                [[34.92647493584645, 33.43688964843751], [34.912962495216966, 33.57971191406251], [34.867904962568744, 33.48632812500001]],
-                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
-            ).addTo(map_2134a761029d37a30cb4ee46f19e4551);
-        
-    
-        var popup_d0cfee48297ca115d5a79d138a3c87e7 = L.popup({"maxWidth": 500});
-
-        
-            var html_56de06746dbb48c181a93179b8212174 = $(`<div id="html_56de06746dbb48c181a93179b8212174" style="width: 100.0%; height: 100.0%;">         <!DOCTYPE html>         <html>         <center>         <body>         <table style="height: 150px; width: 500px;">             <tbody>                 <tr>                     <td style="background-color: blue"><span style="color: white">StartDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-23</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">EndDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-07-01</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">Coordinates</span></td>                     <td style="background-color: white"><span style="color: blue">[{"lat": 34.92647493584645, "lng": 33.43688964843751}, {"lat": 34.912962495216966, "lng": 33.57971191406251}, {"lat": 34.867904962568744, "lng": 33.48632812500001}]</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">ID</span></td>                     <td style="background-color: white"><span style="color: blue">26</span></td>                 </tr>                 <tr>                     <a href="/statusSpecific" target="_top"><button>See Status</button></a>                     <a href="/contextSpecific" target="_top"><button>See Contextual Information</button></a>                 </tr>             </tbody>         </table>         </center>         </html>     </div>`)[0];
-            popup_d0cfee48297ca115d5a79d138a3c87e7.setContent(html_56de06746dbb48c181a93179b8212174);
-        
-
-        polygon_2bd7039053125adbb095bc3c74f6056c.bindPopup(popup_d0cfee48297ca115d5a79d138a3c87e7)
-        ;
-
-        
-    
-    
-            var polygon_1b73b1a28aea3b4dd798fe6657ec4ca3 = L.polygon(
-                [[34.80929324176267, 32.83813476562501], [34.79576153473033, 32.89855957031251], [34.7461262752594, 32.89855957031251]],
-                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
-            ).addTo(map_2134a761029d37a30cb4ee46f19e4551);
-        
-    
-        var popup_83ce921aafa367b9b7fbfe038c628ee7 = L.popup({"maxWidth": 500});
-
-        
-            var html_065025900d04d1df3fc95c9352cd080e = $(`<div id="html_065025900d04d1df3fc95c9352cd080e" style="width: 100.0%; height: 100.0%;">         <!DOCTYPE html>         <html>         <center>         <body>         <table style="height: 150px; width: 500px;">             <tbody>                 <tr>                     <td style="background-color: blue"><span style="color: white">StartDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-26</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">EndDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-07-03</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">Coordinates</span></td>                     <td style="background-color: white"><span style="color: blue">[{"lat": 34.80929324176267, "lng": 32.83813476562501}, {"lat": 34.79576153473033, "lng": 32.89855957031251}, {"lat": 34.7461262752594, "lng": 32.89855957031251}]</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">ID</span></td>                     <td style="background-color: white"><span style="color: blue">27</span></td>                 </tr>                 <tr>                     <a href="/statusSpecific" target="_top"><button>See Status</button></a>                     <a href="/contextSpecific" target="_top"><button>See Contextual Information</button></a>                 </tr>             </tbody>         </table>         </center>         </html>     </div>`)[0];
-            popup_83ce921aafa367b9b7fbfe038c628ee7.setContent(html_065025900d04d1df3fc95c9352cd080e);
-        
-
-        polygon_1b73b1a28aea3b4dd798fe6657ec4ca3.bindPopup(popup_83ce921aafa367b9b7fbfe038c628ee7)
-        ;
-
-        
-    
-    
-            var polygon_c57a45b0cbb28bf17f913a09ee5067b6 = L.polygon(
-                [[34.79125047210742, 32.65686035156251], [34.76417891445512, 32.72827148437501], [34.70097741472011, 32.67883300781251]],
-                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
-            ).addTo(map_2134a761029d37a30cb4ee46f19e4551);
-        
-    
-        var popup_481352136ad8b35b6fbb8bef22d73535 = L.popup({"maxWidth": 500});
-
-        
-            var html_ae78b8ac1f250d99df3c595a3131eac7 = $(`<div id="html_ae78b8ac1f250d99df3c595a3131eac7" style="width: 100.0%; height: 100.0%;">         <!DOCTYPE html>         <html>         <center>         <body>         <table style="height: 150px; width: 500px;">             <tbody>                 <tr>                     <td style="background-color: blue"><span style="color: white">StartDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-22</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">EndDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-24</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">Coordinates</span></td>                     <td style="background-color: white"><span style="color: blue">[{"lat": 34.79125047210742, "lng": 32.65686035156251}, {"lat": 34.76417891445512, "lng": 32.72827148437501}, {"lat": 34.70097741472011, "lng": 32.67883300781251}]</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">ID</span></td>                     <td style="background-color: white"><span style="color: blue">28</span></td>                 </tr>                 <tr>                     <a href="/statusSpecific" target="_top"><button>See Status</button></a>                     <a href="/contextSpecific" target="_top"><button>See Contextual Information</button></a>                 </tr>             </tbody>         </table>         </center>         </html>     </div>`)[0];
-            popup_481352136ad8b35b6fbb8bef22d73535.setContent(html_ae78b8ac1f250d99df3c595a3131eac7);
-        
-
-        polygon_c57a45b0cbb28bf17f913a09ee5067b6.bindPopup(popup_481352136ad8b35b6fbb8bef22d73535)
-        ;
-
-        
-    
-    
-            var polygon_b666764406c2e309f01ad23b4563e0b7 = L.polygon(
-                [[34.84987503195418, 33.08532714843751], [34.908457853981396, 33.30505371093751], [34.8183131456094, 33.30505371093751], [34.80929324176267, 33.20068359375001]],
-                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
-            ).addTo(map_2134a761029d37a30cb4ee46f19e4551);
-        
-    
-        var popup_f8625d57c50c403d52d29f9d563c1b3d = L.popup({"maxWidth": 500});
-
-        
-            var html_ae01a50aa0d0d17987524ce2b67d1a43 = $(`<div id="html_ae01a50aa0d0d17987524ce2b67d1a43" style="width: 100.0%; height: 100.0%;">         <!DOCTYPE html>         <html>         <center>         <body>         <table style="height: 150px; width: 500px;">             <tbody>                 <tr>                     <td style="background-color: blue"><span style="color: white">StartDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-15</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">EndDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-17</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">Coordinates</span></td>                     <td style="background-color: white"><span style="color: blue">[{"lat": 34.84987503195418, "lng": 33.08532714843751}, {"lat": 34.908457853981396, "lng": 33.30505371093751}, {"lat": 34.8183131456094, "lng": 33.30505371093751}, {"lat": 34.80929324176267, "lng": 33.20068359375001}]</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">ID</span></td>                     <td style="background-color: white"><span style="color: blue">21</span></td>                 </tr>                 <tr>                     <a href="/statusSpecific" target="_top"><button>See Status</button></a>                     <a href="/contextSpecific" target="_top"><button>See Contextual Information</button></a>                 </tr>             </tbody>         </table>         </center>         </html>     </div>`)[0];
-            popup_f8625d57c50c403d52d29f9d563c1b3d.setContent(html_ae01a50aa0d0d17987524ce2b67d1a43);
-        
-
-        polygon_b666764406c2e309f01ad23b4563e0b7.bindPopup(popup_f8625d57c50c403d52d29f9d563c1b3d)
-        ;
-
-        
-    
-    
-            var polygon_41a804a470a758f6ba95ee632411253e = L.polygon(
-                [[34.95349314197422, 32.74475097656251], [35.007502842952896, 33.07983398437501], [34.827332061981586, 32.90405273437501]],
-                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
-            ).addTo(map_2134a761029d37a30cb4ee46f19e4551);
-        
-    
-        var popup_d775b96243b3b39a23432df953d29f87 = L.popup({"maxWidth": 500});
-
-        
-            var html_c8ec7678deebcf4c246af1d123db2740 = $(`<div id="html_c8ec7678deebcf4c246af1d123db2740" style="width: 100.0%; height: 100.0%;">         <!DOCTYPE html>         <html>         <center>         <body>         <table style="height: 150px; width: 500px;">             <tbody>                 <tr>                     <td style="background-color: blue"><span style="color: white">StartDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-10</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">EndDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-16</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">Coordinates</span></td>                     <td style="background-color: white"><span style="color: blue">[{"lat": 34.95349314197422, "lng": 32.74475097656251}, {"lat": 35.007502842952896, "lng": 33.07983398437501}, {"lat": 34.827332061981586, "lng": 32.90405273437501}]</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">ID</span></td>                     <td style="background-color: white"><span style="color: blue">22</span></td>                 </tr>                 <tr>                     <a href="/statusSpecific" target="_top"><button>See Status</button></a>                     <a href="/contextSpecific" target="_top"><button>See Contextual Information</button></a>                 </tr>             </tbody>         </table>         </center>         </html>     </div>`)[0];
-            popup_d775b96243b3b39a23432df953d29f87.setContent(html_c8ec7678deebcf4c246af1d123db2740);
-        
-
-        polygon_41a804a470a758f6ba95ee632411253e.bindPopup(popup_d775b96243b3b39a23432df953d29f87)
-        ;
-
-        
-    
-    
-            var polygon_121093320bdb6cc7f116c01b6f3fc841 = L.polygon(
-                [[35.03899204678081, 33.16223144531251], [35.04798673426734, 33.42041015625001], [34.94448806230625, 33.36547851562501], [34.962497232449145, 33.16772460937501]],
-                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
-            ).addTo(map_2134a761029d37a30cb4ee46f19e4551);
-        
-    
-        var popup_180d0305b2d6e111a9887ab855e60ebb = L.popup({"maxWidth": 500});
-
-        
-            var html_07d09b63c005967499d05826a5783216 = $(`<div id="html_07d09b63c005967499d05826a5783216" style="width: 100.0%; height: 100.0%;">         <!DOCTYPE html>         <html>         <center>         <body>         <table style="height: 150px; width: 500px;">             <tbody>                 <tr>                     <td style="background-color: blue"><span style="color: white">StartDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-16</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">EndDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-25</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">Coordinates</span></td>                     <td style="background-color: white"><span style="color: blue">[{"lat": 35.03899204678081, "lng": 33.16223144531251}, {"lat": 35.04798673426734, "lng": 33.42041015625001}, {"lat": 34.94448806230625, "lng": 33.36547851562501}, {"lat": 34.962497232449145, "lng": 33.16772460937501}]</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">ID</span></td>                     <td style="background-color: white"><span style="color: blue">23</span></td>                 </tr>                 <tr>                     <a href="/statusSpecific" target="_top"><button>See Status</button></a>                     <a href="/contextSpecific" target="_top"><button>See Contextual Information</button></a>                 </tr>             </tbody>         </table>         </center>         </html>     </div>`)[0];
-            popup_180d0305b2d6e111a9887ab855e60ebb.setContent(html_07d09b63c005967499d05826a5783216);
-        
-
-        polygon_121093320bdb6cc7f116c01b6f3fc841.bindPopup(popup_180d0305b2d6e111a9887ab855e60ebb)
-        ;
-
-        
-    
-    
-            var polygon_943f036c9de3b16597ffa0e38ba13950 = L.polygon(
-                [[34.994003757575776, 32.50305175781251], [34.88142481679758, 32.65136718750001], [34.80929324176267, 32.51953125000001]],
-                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
-            ).addTo(map_2134a761029d37a30cb4ee46f19e4551);
-        
-    
-        var popup_b867291a095ccd2b057e61d26eecd1a0 = L.popup({"maxWidth": 500});
-
-        
-            var html_cc06528ad255a849093af9bd5906c558 = $(`<div id="html_cc06528ad255a849093af9bd5906c558" style="width: 100.0%; height: 100.0%;">         <!DOCTYPE html>         <html>         <center>         <body>         <table style="height: 150px; width: 500px;">             <tbody>                 <tr>                     <td style="background-color: blue"><span style="color: white">StartDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-12</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">EndDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-18</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">Coordinates</span></td>                     <td style="background-color: white"><span style="color: blue">[{"lat": 34.994003757575776, "lng": 32.50305175781251}, {"lat": 34.88142481679758, "lng": 32.65136718750001}, {"lat": 34.80929324176267, "lng": 32.51953125000001}]</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">ID</span></td>                     <td style="background-color: white"><span style="color: blue">24</span></td>                 </tr>                 <tr>                     <a href="/statusSpecific" target="_top"><button>See Status</button></a>                     <a href="/contextSpecific" target="_top"><button>See Contextual Information</button></a>                 </tr>             </tbody>         </table>         </center>         </html>     </div>`)[0];
-            popup_b867291a095ccd2b057e61d26eecd1a0.setContent(html_cc06528ad255a849093af9bd5906c558);
-        
-
-        polygon_943f036c9de3b16597ffa0e38ba13950.bindPopup(popup_b867291a095ccd2b057e61d26eecd1a0)
-        ;
-
-        
-    
-    
-            var polygon_f54ef2be9271b88e2fdeea748085972a = L.polygon(
-                [[35.088450570365396, 32.61291503906251], [35.092945313732635, 32.83264160156251], [35.0254981588326, 32.71179199218751]],
-                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
-            ).addTo(map_2134a761029d37a30cb4ee46f19e4551);
-        
-    
-        var popup_800e2c5039cdbd4fdee5ca2e40ee528a = L.popup({"maxWidth": 500});
-
-        
-            var html_54fe33fe3ce05de46d05a5326d33004b = $(`<div id="html_54fe33fe3ce05de46d05a5326d33004b" style="width: 100.0%; height: 100.0%;">         <!DOCTYPE html>         <html>         <center>         <body>         <table style="height: 150px; width: 500px;">             <tbody>                 <tr>                     <td style="background-color: blue"><span style="color: white">StartDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-15</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">EndDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-24</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">Coordinates</span></td>                     <td style="background-color: white"><span style="color: blue">[{"lat": 35.088450570365396, "lng": 32.61291503906251}, {"lat": 35.092945313732635, "lng": 32.83264160156251}, {"lat": 35.0254981588326, "lng": 32.71179199218751}]</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">ID</span></td>                     <td style="background-color: white"><span style="color: blue">25</span></td>                 </tr>                 <tr>                     <a href="/statusSpecific" target="_top"><button>See Status</button></a>                     <a href="/contextSpecific" target="_top"><button>See Contextual Information</button></a>                 </tr>             </tbody>         </table>         </center>         </html>     </div>`)[0];
-            popup_800e2c5039cdbd4fdee5ca2e40ee528a.setContent(html_54fe33fe3ce05de46d05a5326d33004b);
-        
-
-        polygon_f54ef2be9271b88e2fdeea748085972a.bindPopup(popup_800e2c5039cdbd4fdee5ca2e40ee528a)
-        ;
-
-        
-    
-    
-            var polygon_c4047ac941e73332f198858d974add67 = L.polygon(
-                [[34.92647493584645, 33.43688964843751], [34.912962495216966, 33.57971191406251], [34.867904962568744, 33.48632812500001]],
-                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
-            ).addTo(map_2134a761029d37a30cb4ee46f19e4551);
-        
-    
-        var popup_49099a4abff9fd161962f527d8b234d6 = L.popup({"maxWidth": 500});
-
-        
-            var html_8236d7a4f26370a77034cd2d0e671587 = $(`<div id="html_8236d7a4f26370a77034cd2d0e671587" style="width: 100.0%; height: 100.0%;">         <!DOCTYPE html>         <html>         <center>         <body>         <table style="height: 150px; width: 500px;">             <tbody>                 <tr>                     <td style="background-color: blue"><span style="color: white">StartDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-23</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">EndDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-07-01</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">Coordinates</span></td>                     <td style="background-color: white"><span style="color: blue">[{"lat": 34.92647493584645, "lng": 33.43688964843751}, {"lat": 34.912962495216966, "lng": 33.57971191406251}, {"lat": 34.867904962568744, "lng": 33.48632812500001}]</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">ID</span></td>                     <td style="background-color: white"><span style="color: blue">26</span></td>                 </tr>                 <tr>                     <a href="/statusSpecific" target="_top"><button>See Status</button></a>                     <a href="/contextSpecific" target="_top"><button>See Contextual Information</button></a>                 </tr>             </tbody>         </table>         </center>         </html>     </div>`)[0];
-            popup_49099a4abff9fd161962f527d8b234d6.setContent(html_8236d7a4f26370a77034cd2d0e671587);
-        
-
-        polygon_c4047ac941e73332f198858d974add67.bindPopup(popup_49099a4abff9fd161962f527d8b234d6)
-        ;
-
-        
-    
-    
-            var polygon_9075b59d2951786141783dc36991a497 = L.polygon(
-                [[34.80929324176267, 32.83813476562501], [34.79576153473033, 32.89855957031251], [34.7461262752594, 32.89855957031251]],
-                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
-            ).addTo(map_2134a761029d37a30cb4ee46f19e4551);
-        
-    
-        var popup_a8ab7dede5cf28c85a885f049aa75d71 = L.popup({"maxWidth": 500});
-
-        
-            var html_c5f99dcd2721badd4b9fc692f5fbb6a2 = $(`<div id="html_c5f99dcd2721badd4b9fc692f5fbb6a2" style="width: 100.0%; height: 100.0%;">         <!DOCTYPE html>         <html>         <center>         <body>         <table style="height: 150px; width: 500px;">             <tbody>                 <tr>                     <td style="background-color: blue"><span style="color: white">StartDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-26</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">EndDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-07-03</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">Coordinates</span></td>                     <td style="background-color: white"><span style="color: blue">[{"lat": 34.80929324176267, "lng": 32.83813476562501}, {"lat": 34.79576153473033, "lng": 32.89855957031251}, {"lat": 34.7461262752594, "lng": 32.89855957031251}]</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">ID</span></td>                     <td style="background-color: white"><span style="color: blue">27</span></td>                 </tr>                 <tr>                     <a href="/statusSpecific" target="_top"><button>See Status</button></a>                     <a href="/contextSpecific" target="_top"><button>See Contextual Information</button></a>                 </tr>             </tbody>         </table>         </center>         </html>     </div>`)[0];
-            popup_a8ab7dede5cf28c85a885f049aa75d71.setContent(html_c5f99dcd2721badd4b9fc692f5fbb6a2);
-        
-
-        polygon_9075b59d2951786141783dc36991a497.bindPopup(popup_a8ab7dede5cf28c85a885f049aa75d71)
-        ;
-
-        
-    
-    
-            var polygon_57c0f2dc409cbbb61267c9499f52b4d4 = L.polygon(
-                [[34.79125047210742, 32.65686035156251], [34.76417891445512, 32.72827148437501], [34.70097741472011, 32.67883300781251]],
-                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.1, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 1.0, "smoothFactor": 1.0, "stroke": true, "weight": 2}
-            ).addTo(map_2134a761029d37a30cb4ee46f19e4551);
-        
-    
-        var popup_d68e2b548118597fbf15221bfe82bcc4 = L.popup({"maxWidth": 500});
-
-        
-            var html_cffde9fb903fd30c2e1cde69880524c4 = $(`<div id="html_cffde9fb903fd30c2e1cde69880524c4" style="width: 100.0%; height: 100.0%;">         <!DOCTYPE html>         <html>         <center>         <body>         <table style="height: 150px; width: 500px;">             <tbody>                 <tr>                     <td style="background-color: blue"><span style="color: white">StartDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-22</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">EndDate</span></td>                     <td style="background-color: white"><span style="color: blue">2022-06-24</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">Coordinates</span></td>                     <td style="background-color: white"><span style="color: blue">[{"lat": 34.79125047210742, "lng": 32.65686035156251}, {"lat": 34.76417891445512, "lng": 32.72827148437501}, {"lat": 34.70097741472011, "lng": 32.67883300781251}]</span></td>                 </tr>                 <tr>                     <td style="background-color: blue"><span style="color: white">ID</span></td>                     <td style="background-color: white"><span style="color: blue">28</span></td>                 </tr>                 <tr>                     <a href="/statusSpecific" target="_top"><button>See Status</button></a>                     <a href="/contextSpecific" target="_top"><button>See Contextual Information</button></a>                 </tr>             </tbody>         </table>         </center>         </html>     </div>`)[0];
-            popup_d68e2b548118597fbf15221bfe82bcc4.setContent(html_cffde9fb903fd30c2e1cde69880524c4);
-        
-
-        polygon_57c0f2dc409cbbb61267c9499f52b4d4.bindPopup(popup_d68e2b548118597fbf15221bfe82bcc4)
+        polygon_ecc803fe71d3ecbc7351c6401d65268d.bindPopup(popup_3683b4011ef6c8fa80692eb1eb3bddc9)
         ;
 
         
