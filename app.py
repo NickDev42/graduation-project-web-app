@@ -23,8 +23,8 @@ import os
 # import dash
 # import matplotlib.pyplot as plt
 # df_suburbs = pd.read_excel("C:\waterwatch_clean2.xlsx", sheet_name='Sheet1')
-db_data = pd.read_csv("C:\\Users\Public\data.csv", delimiter=',')
-db_data_json = pd.read_json("C:\\Users\Public\csvjson.json")
+# db_data = pd.read_csv("C:\\Users\Public\data.csv", delimiter=',')
+# db_data_json = pd.read_json("C:\\Users\Public\csvjson.json")
 db_data_parse = json.load(open("jsondatafile.json"))
 db_data_json_new = pd.read_json("jsondatafile.json")
 measure_control = MeasureControl()
@@ -32,11 +32,12 @@ measure_control = MeasureControl()
 basedir = os.path.abspath(os.path.dirname(__file__))
 # print(db_data_json.head().to_json())
 
-server = Flask(__name__)
-server.config['SECRET_KEY'] = 'mysecretkey'
-# server.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///'+os.path.join(basedir, 'data.sqlite')
-# server.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-# db = SQLAlchemy(server)
+app = Flask(__name__)
+app.config['SECRET_KEY'] = 'mysecretkey'
+# app.config['SQLALCHEMY_DATABASE_URI'] = ' postgres://rkxtjqdykwwckc:d520ddc63215694388218b32a734557d2906fcc69b09c12471dcd212a62712d3@ec2-52-71-23-11.compute-1.amazonaws.com:5432/dddnbklebrv3sh'
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///'+os.path.join(basedir, 'data.sqlite')
+# app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+# db = SQLAlchemy(app)
 
 
 # Code Login Form: https://github.com/sathyainfotech/Login-Registration-SQLite.git
@@ -44,11 +45,11 @@ con=sqlite3.connect("mydb.db")
 con.execute("CREATE TABLE if not exists login(id INTEGER PRIMARY KEY, email TEXT, password TEXT, organisation TEXT)")
 con.execute("CREATE TABLE if not exists afforestation(id INTEGER PRIMARY KEY, coordinates BLOB, startDate DATE not null, endDate DATE not null, organisation TEXT not null)")
 con.close()
-@server.route('/loginform')
+@app.route('/loginform')
 def loginform():
     return render_template("loginform.html")
 
-@server.route('/login', methods=["GET","POST"])
+@app.route('/login', methods=["GET", "POST"])
 def login():
     if request.method == 'POST':
         email = request.form['email']
@@ -67,7 +68,7 @@ def login():
             flash("Email and Password incorrect", "danger")
     return redirect(url_for("loginform"))
 
-@server.route('/register', methods=["GET","POST"])
+@app.route('/register', methods=["GET", "POST"])
 def register():
     if request.method == 'POST':
         try:
@@ -86,7 +87,7 @@ def register():
             con.close()
     return render_template("register.html")
 
-@server.route('/logout')
+@app.route('/logout')
 def logout():
     session.clear()
     filepath = "specific.json"
@@ -96,7 +97,7 @@ def logout():
         pass
     return redirect(url_for("login"))
 
-@server.route('/user',methods=["GET","POST"])
+@app.route('/user', methods=["GET", "POST"])
 def user():
     return render_template("user.html")
 
@@ -119,62 +120,62 @@ class JoinForm(FlaskForm):
 
 
 # here was afforestation form
-@server.route('/thankyou')
+@app.route('/thankyou')
 def thankyou():
     return render_template('thankyou.html')
 
 
 
-@server.route('/')
+@app.route('/')
 def fn():
     vis = dataVis()
 
     map = treeTypeMap()
     return render_template("index.html", map=map, visualisation=vis)
 
-@server.route('/healthservice')
+@app.route('/healthservice')
 def fn1():
     visHealth = dataVisHealth()
     # mapHealth = treeHealth()
     map = treeTypeMap()
     return render_template("contextInfo.html", map=map, visualisation=visHealth)
 
-@server.route('/soiltypeservice')
+@app.route('/soiltypeservice')
 def fn2():
     visSoil = dataVisSoil()
     # mapSoil = soilType()
     map = treeTypeMap()
     return render_template("soilType.html", map=map, visualisation=visSoil)
 
-@server.route('/statusafforestation')
+@app.route('/statusafforestation')
 def fn3():
     map = treeTypeMap()
     return render_template("statusAfforestation.html", map=map)
 
-@server.route('/statusSpecific')
+@app.route('/statusSpecific')
 def fn4():
     map = treeTypeMap()
     return render_template("statusSpecific.html", map=map)
 
-@server.route('/contextSpecific')
+@app.route('/contextSpecific')
 def fn5():
     map = treeTypeMap()
     return render_template("contextSpecific.html", map=map)
 
-@server.route('/vegetationSpecific')
+@app.route('/vegetationSpecific')
 def specData():
     specVis = specificDV()
     map = treeTypeMap()
     return render_template("specificData.html", map=map, visualisation=specVis)
 
-@server.route('/healthSpecific')
+@app.route('/healthSpecific')
 def specDataHealthTrees():
     specVis = specificDVhealth()
     # map = treeHealth()
     map = treeTypeMap()
     return render_template("specificDatahealth.html", map=map, visualisation=specVis)
 
-@server.route('/soilSpecific')
+@app.route('/soilSpecific')
 def specDataSoilType():
     specVis = specificDVsoil()
     # map = soilType()
@@ -197,8 +198,8 @@ el._template = jinja2.Template("""
                 fetch("/measureFinish", {
                     method: "post",
                     headers: {
-                        "Accept": "application/json",
-                        "Content-Type": "application/json"
+                        "Accept": "app/json",
+                        "Content-Type": "app/json"
                     },
                     body: JSON.stringify({
                         oJS_In: evt
@@ -223,7 +224,7 @@ el._template = jinja2.Template("""
 
 
 
-@server.route('/news')
+@app.route('/news')
 def afforestation_news():
     con = sqlite3.connect("mydb.db")
     cur = con.cursor()
@@ -239,16 +240,18 @@ pts_in_list = list()
 
 
 
-def treeTypeMap():  # put application's code here
+def treeTypeMap():  # put app's code here
     db_data_locations = db_data_json_new[["Latitude", "Longitude"]]
     db_data_locations_list = db_data_locations.values.tolist()
     db_data_locations_list_size = len(db_data_locations_list)
     global afforestation_filename
+
     con = sqlite3.connect("mydb.db")
     cur = con.cursor()
     cur.execute("SELECT startDate, coordinates, points, endDate, id FROM afforestation")
     polygons = cur.fetchall()
     print(type(polygons))
+
     for polygon in polygons:
         html = popup_html(polygon[0], polygon[1], polygon[3], polygon[4])
         popup1 = folium.Popup(folium.Html(html, script=True), max_width=500)
@@ -261,7 +264,7 @@ def treeTypeMap():  # put application's code here
         print(pts_in_list)
 
         print(type(pts_in_list))
-        polydata(f"polygon{polygons.index(polygon)}", pts_in_list)
+        polydata(f"polygon{polygons.index(polygon)}", pts_in_list) #attach data from pts list to specific polygon json file -- done
 
         afforestation_filename = "jsons/polygon{0}.json".format(str(polygons.index(polygon)))
         print(afforestation_filename)
@@ -285,7 +288,6 @@ def treeTypeMap():  # put application's code here
         else:
             poly = folium.Polygon(locations=locations, popup=popup1, color="green", weight=2, fill_color="green", fill_opacity=0.1)
             poly.add_to(map_osm)
-
             polygons_list.append(poly)
 
     filepath = "templates/map.html"
@@ -296,7 +298,7 @@ def treeTypeMap():  # put application's code here
     return map_osm._repr_html_()
 
 
-@server.route('/visstatus')
+@app.route('/visstatus')
 def visualise_polygon():
     print("shshshshsh")
     print(afforestation_filename)
@@ -306,21 +308,21 @@ def visualise_polygon():
     return dv._repr_html_()
 
 
-@server.route('/visstatushealth')
+@app.route('/visstatushealth')
 def visualise_polygon_health():
     obj = pd.read_json(afforestation_filename)
     dv = plt.histogram(obj, x="Burnt")
     return dv._repr_html_()
 
 
-@server.route('/visstatussoil')
+@app.route('/visstatussoil')
 def visualise_polygon_soil():
     obj = pd.read_json(afforestation_filename)
     dv = plt.pie(data_frame=obj.groupby(['SoilTexture']).mean().reset_index(), values="SoilDepth", names="SoilTexture")
     return dv._repr_html_()
 
 
-@server.route('/visstatuselevation')
+@app.route('/visstatuselevation')
 def visualise_polygon_elevation():
     obj = pd.read_json(afforestation_filename)
     dv = plt.histogram(data_frame=obj.groupby(['Elevationlvl']).mean().reset_index(), x="Elevationlvl", y="Heightlvl")
@@ -328,39 +330,39 @@ def visualise_polygon_elevation():
     return dv._repr_html_()
 
 
-@server.route('/visstatusweather')
+@app.route('/visstatusweather')
 def visualise_polygon_weather():
     obj = pd.read_json(afforestation_filename)
     dv = plt.pie(data_frame=obj.groupby(['Rain']).mean().reset_index(), values="AvgRain", names="Rain")
     return dv._repr_html_()
 
 
-@server.route('/visstatusslope')
+@app.route('/visstatusslope')
 def visualise_polygon_slope():
     obj = pd.read_json(afforestation_filename)
     dv = plt.histogram(data_frame=obj.groupby(['Aspect']).mean().reset_index(), x="Aspect", y="Slope")
     return dv._repr_html_()
 
 
-@server.route('/globalsoil')
+@app.route('/globalsoil')
 def visualise_soil():
     dv = plt.pie(db_data_json_new, values="SoilDepth", names="SoilTexture")
     return dv._repr_html_()
 
 
-@server.route('/globalelevation')
+@app.route('/globalelevation')
 def visualise_elevation():
     dv = plt.histogram(db_data_json_new, x="Elevationlvl", y="Heightlvl")
     return dv._repr_html_()
 
 
-@server.route('/globalweather')
+@app.route('/globalweather')
 def visualise_weather():
     dv = plt.pie(db_data_json_new, values="AvgRain", names="Rain")
     return dv._repr_html_()
 
 
-@server.route('/globalslope')
+@app.route('/globalslope')
 def visualise_slope():
     dv = plt.histogram(db_data_json_new, x="Aspect", y="Slope")
     return dv._repr_html_()
@@ -368,11 +370,11 @@ def visualise_slope():
 
 def polydata(filename, file_src):
     with open(f"jsons/{filename}.json", "w") as outfile_pts:
-        print(pts_in_list)
-        json.dump(file_src, outfile_pts)
+            print(pts_in_list)
+            json.dump(file_src, outfile_pts)
 
 
-# def treeHealth():  # put application's code here
+# def treeHealth():  # put app's code here
 #     db_data_locations = db_data_json_new[["Latitude", "Longitude"]]
 #     db_data_locations_list = db_data_locations.values.tolist()
 #     db_data_locations_list_size = len(db_data_locations_list)
@@ -395,34 +397,34 @@ def polydata(filename, file_src):
 
 
 
-@server.route('/map')
+@app.route('/map')
 def map():
     return render_template('map.html')
 
 
-@server.route('/maphealth')
+@app.route('/maphealth')
 def mapHealth():
     return render_template('mapHealth.html')
 
 trees_json_file = pd.read_json("treesplanted.json")
-@server.route('/treesplanted')
+@app.route('/treesplanted')
 def trees_planted():
     dv = plt.line(trees_json_file, x="Year", y="TreesPlanted", markers=True)
     return dv._repr_html_()
 
-@server.route('/vis')
+@app.route('/vis')
 def dataVis():
     dv = plt.pie(db_data_json_new, names="TreeType")
     return dv._repr_html_()
 
 
-@server.route('/visHealth')
+@app.route('/visHealth')
 def dataVisHealth():
     dh = plt.histogram(db_data_json_new, x="Burnt")
     return dh._repr_html_()
 
 
-@server.route('/visSoil')
+@app.route('/visSoil')
 def dataVisSoil():
     dv = plt.pie(db_data_json_new, values="SoilDepth", names="SoilTexture")
 
@@ -434,7 +436,7 @@ data_list = list()
 li_intersect_point = list()
 
 
-@server.route('/measureFinish', methods = ['POST'] )
+@app.route('/measureFinish', methods = ['POST'])
 def measureFinish():
     data = request.data
     data = json.loads(data)
@@ -484,7 +486,7 @@ def measureFinish():
     return json.loads('{ "response": "success" }')
 
 
-@server.route('/afforestationform', methods=['GET', 'POST'])
+@app.route('/afforestationform', methods=['GET', 'POST'])
 def form():
     map = treeTypeMap()
     form = AfforestationForm()
@@ -516,13 +518,13 @@ def form():
                 # return redirect(url_for("form"))
                 print(e)
             finally:
-                return redirect(url_for('thankyou'))
+                return redirect(url_for('fn'))
                 conn.close()
 
     return render_template('applicationform.html', form=form)
 
 
-@server.route('/joinform', methods=['GET','POST'])
+@app.route('/joinform', methods=['GET', 'POST'])
 def join_form():
     map = treeTypeMap()
     form = JoinForm()
@@ -549,7 +551,7 @@ def join_form():
                 # return redirect(url_for("form"))
                 print(e)
             finally:
-                return redirect(url_for('thankyou'))
+                return redirect(url_for('fn'))
                 conn.close()
 
     return render_template('joinform.html', form=form, afforestation_list = session["afforestation"])
@@ -565,7 +567,7 @@ def get_afforestations():
     return data
 
 
-@server.route('/dvs')
+@app.route('/dvs')
 def specificDV():
 
         # for index in range(0, len(li_intersect_point)):
@@ -575,7 +577,7 @@ def specificDV():
     new_data_visualisation = plt.pie(specific_data, values="Density", names="Vegetation") # error is somewhere here
     return new_data_visualisation._repr_html_()
 
-@server.route('/dvshealth')
+@app.route('/dvshealth')
 def specificDVhealth():
 
         # for index in range(0, len(li_intersect_point)):
@@ -586,7 +588,7 @@ def specificDVhealth():
     new_data_visualisation = plt.histogram(specific_data_health, x="Burnt")
     return new_data_visualisation._repr_html_()
 
-@server.route('/dvssoil')
+@app.route('/dvssoil')
 def specificDVsoil():
 
     specific_data_soil = pd.read_json("specific.json")
@@ -647,4 +649,4 @@ def b_intersects_base_y(db_extrema, dict_point):
 
 
 if __name__ == '__main__':
-    server.run()
+    app.run()

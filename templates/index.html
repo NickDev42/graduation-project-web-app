@@ -94,14 +94,15 @@
         </div>
     </div>
 
-        {% block content %}
+
 
         <div class="row mx-auto" style="width: 90%">
             <div class="col mx-auto">
                 <h2 style="color:white; text-align: center;">Map</h2>
-                <iframe src="/map" width="900px" height="600px"></iframe>
+                <iframe src="/map" width="800px" height="500px"></iframe>
 
             </div>
+            {% block content %}
             <div class="col mx-auto" >
                 <div class="row align-items-center center justify-content-center mx-auto">
                     <div class="col">
@@ -118,8 +119,9 @@
                     </div>
                 </div>
             </div>
+            {% endblock %}
         </div>
-        {% endblock %}
+
 
     <div style="float: left">
         <br>
