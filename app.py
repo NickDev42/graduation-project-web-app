@@ -34,7 +34,7 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'mysecretkey'
-app.config['SQLALCHEMY_DATABASE_URI'] = ' postgres://rkxtjqdykwwckc:d520ddc63215694388218b32a734557d2906fcc69b09c12471dcd212a62712d3@ec2-52-71-23-11.compute-1.amazonaws.com:5432/dddnbklebrv3sh'
+# app.config['SQLALCHEMY_DATABASE_URI'] = ' postgres://rkxtjqdykwwckc:d520ddc63215694388218b32a734557d2906fcc69b09c12471dcd212a62712d3@ec2-52-71-23-11.compute-1.amazonaws.com:5432/dddnbklebrv3sh'
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///'+os.path.join(basedir, 'data.sqlite')
 # app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 # db = SQLAlchemy(app)
@@ -126,7 +126,7 @@ def thankyou():
 
 
 
-@app.route('/')
+@app.route('/index')
 def fn():
     vis = dataVis()
 
