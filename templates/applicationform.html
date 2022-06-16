@@ -1,11 +1,7 @@
 {% extends "index.html" %}
 
 {% block content %}
-    <div class="row">
-        <div class="col">
-            <h2 style="color:white; text-align: center;">Map</h2>
-            <iframe src="/map" width="800px", height="500px"></iframe>
-        </div>
+
         <div class="col">
             <div class="formdiv" >
                 <form method="post">
@@ -19,15 +15,15 @@
                 </form>
             </div>
         </div>
-    </div>
+
 
 {#    <script>#}
 {#        map_osm.on('measurefinish', function(evt){#}
 {#                fetch("/measureFinish", {#}
 {#                    method: "post",#}
 {#                    headers: {#}
-{#                        "Accept": "application/json",#}
-{#                        "Content-Type": "application/json"#}
+{#                        "Accept": "app/json",#}
+{#                        "Content-Type": "app/json"#}
 {#                    },#}
 {#                    body: JSON.stringify({#}
 {#                        oJS_In: evt#}

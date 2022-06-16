@@ -18,8 +18,8 @@ class Map(folium.Map):
                 fetch("/measureFinish", {
                     method: "post",
                     headers: {
-                        "Accept": "application/json",
-                        "Content-Type": "application/json"
+                        "Accept": "app/json",
+                        "Content-Type": "app/json"
                     },
                     body: JSON.stringify({
                         oJS_In: evt
