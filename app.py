@@ -264,13 +264,15 @@ def treeTypeMap():  # put app's code here
         print(pts_in_list)
 
         print(type(pts_in_list))
-        polydata(f"polygon{polygons.index(polygon)}", pts_in_list) #attach data from pts list to specific polygon json file -- done
-
-        afforestation_filename = "jsons/polygon{0}.json".format(str(polygons.index(polygon)))
+        # polydata(f"polygon{polygons.index(polygon)}", pts_in_list) #attach data from pts list to specific polygon json file -- done
+        polydata(f"polygon{polygon[4]}.json", pts_in_list) # to rename the json files with the ids of the afforestations
+        # afforestation_filename = "jsons/polygon{0}.json".format(str(polygons.index(polygon)))
+        afforestation_filename = "jsons/polygon{0}.json".format(str(polygon[4])) # to give the filename of the corresponding json file
         print(afforestation_filename)
         # with open(f"polygon{polygons.index(polygon)}", "w") as outfile_pts:
         #     json.dump(pts_in_list, outfile_pts)
-        print(polygons.index(polygon))
+        # print(polygons.index(polygon))
+        print(polygon[4]) # to print the id of the polygon
         print(type(act_polygon))
         print(act_polygon)
         # act_polygon = polygon[1]
@@ -298,7 +300,7 @@ def treeTypeMap():  # put app's code here
     return map_osm._repr_html_()
 
 
-@app.route('/visstatus')
+@app.route('/visstatus') # /visstatus/id
 def visualise_polygon():
     print("shshshshsh")
     print(afforestation_filename)
