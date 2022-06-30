@@ -248,6 +248,7 @@ pts_in_list = list()
 global dict_ploygons
 dict_ploygons = dict()
 
+@app.route('/map')
 def treeTypeMap():  # put app's code here
     db_data_locations = db_data_json_new[["Latitude", "Longitude"]]
     db_data_locations_list = db_data_locations.values.tolist()
@@ -313,8 +314,8 @@ def treeTypeMap():  # put app's code here
         os.remove(filepath)
         map_osm.save('templates/map.html')
     # poly_data_dump(afforestation_filename)
-    return map_osm._repr_html_()
-
+    # return map_osm._repr_html_()
+    return render_template("map.html")
 
 def polydata(filename, file_src):
     with open(f"jsons/{filename}.json", "w") as outfile_pts:
@@ -425,9 +426,9 @@ def visualise_slope():
 
 
 
-@app.route('/map')
-def map():
-    return render_template('map.html')
+# @app.route('/map')
+# def map():
+#     return render_template('map.html')
 
 
 @app.route('/maphealth')
