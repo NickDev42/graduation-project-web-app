@@ -17,7 +17,7 @@ from datetime import datetime, date
 import time
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, UserMixin, login_required, login_user, logout_user, current_user, login_manager
-
+from plotly import io
 import os
 # import seaborn as sns
 # import dash
@@ -25,8 +25,8 @@ import os
 # df_suburbs = pd.read_excel("C:\waterwatch_clean2.xlsx", sheet_name='Sheet1')
 # db_data = pd.read_csv("C:\\Users\Public\data.csv", delimiter=',')
 # db_data_json = pd.read_json("C:\\Users\Public\csvjson.json")
-db_data_parse = json.load(open("jsondatafile.json"))
-db_data_json_new = pd.read_json("jsondatafile.json")
+db_data_parse = json.load(open("jsonmodified.json"))
+db_data_json_new = pd.read_json("jsonmodified.json")
 measure_control = MeasureControl()
 
 basedir = os.path.abspath(os.path.dirname(__file__))
@@ -126,61 +126,68 @@ def thankyou():
 
 
 
-@app.route('/index')
+@app.route('/')
 def fn():
     vis = dataVis()
 
     map = treeTypeMap()
     return render_template("index.html", map=map, visualisation=vis)
 
-@app.route('/healthservice')
+@app.route('/contextinformation')
 def fn1():
     visHealth = dataVisHealth()
     # mapHealth = treeHealth()
     map = treeTypeMap()
     return render_template("contextInfo.html", map=map, visualisation=visHealth)
 
-@app.route('/soiltypeservice')
-def fn2():
-    visSoil = dataVisSoil()
-    # mapSoil = soilType()
-    map = treeTypeMap()
-    return render_template("soilType.html", map=map, visualisation=visSoil)
+# @app.route('/soiltypeservice')
+# def fn2():
+#     visSoil = dataVisSoil()
+#     # mapSoil = soilType()
+#     map = treeTypeMap()
+#     return render_template("soilType.html", map=map, visualisation=visSoil)
 
 @app.route('/statusafforestation')
 def fn3():
     map = treeTypeMap()
     return render_template("statusAfforestation.html", map=map)
 
-@app.route('/statusSpecific')
-def fn4():
-    map = treeTypeMap()
-    return render_template("statusSpecific.html", map=map)
+global poly_ID_selected
+global poly_ID_selected_context
 
-@app.route('/contextSpecific')
-def fn5():
+@app.route('/statusSpecific/<poly_id>')
+def fn4(poly_id):
     map = treeTypeMap()
-    return render_template("contextSpecific.html", map=map)
+    global poly_ID_selected
+    poly_ID_selected = poly_id
+    return render_template("statusSpecific.html", map=map, id=poly_id)
 
-@app.route('/vegetationSpecific')
-def specData():
-    specVis = specificDV()
+@app.route('/contextSpecific/<poly_id>')
+def fn5(poly_id):
     map = treeTypeMap()
-    return render_template("specificData.html", map=map, visualisation=specVis)
+    global poly_ID_selected_context
+    poly_ID_selected_context = poly_id
+    return render_template("contextSpecific.html", map=map, id=poly_id)
 
-@app.route('/healthSpecific')
-def specDataHealthTrees():
-    specVis = specificDVhealth()
-    # map = treeHealth()
-    map = treeTypeMap()
-    return render_template("specificDatahealth.html", map=map, visualisation=specVis)
-
-@app.route('/soilSpecific')
-def specDataSoilType():
-    specVis = specificDVsoil()
-    # map = soilType()
-    map = treeTypeMap()
-    return render_template("specificDataSoil.html", map=map, visualisation=specVis)
+# @app.route('/vegetationSpecific')
+# def specData():
+#     specVis = specificDV()
+#     map = treeTypeMap()
+#     return render_template("specificData.html", map=map, visualisation=specVis)
+#
+# @app.route('/healthSpecific')
+# def specDataHealthTrees():
+#     specVis = specificDVhealth()
+#     # map = treeHealth()
+#     map = treeTypeMap()
+#     return render_template("specificDatahealth.html", map=map, visualisation=specVis)
+#
+# @app.route('/soilSpecific')
+# def specDataSoilType():
+#     specVis = specificDVsoil()
+#     # map = soilType()
+#     map = treeTypeMap()
+#     return render_template("specificDataSoil.html", map=map, visualisation=specVis)
 
 lorem = "Pythom"
 map_osm = folium.Map(location=[35.000, 33.000], zoom_start=8)
@@ -238,7 +245,8 @@ def afforestation_news():
 polygons_list = list()
 pts_in_list = list()
 
-
+global dict_ploygons
+dict_ploygons = dict()
 
 def treeTypeMap():  # put app's code here
     db_data_locations = db_data_json_new[["Latitude", "Longitude"]]
@@ -253,6 +261,7 @@ def treeTypeMap():  # put app's code here
     print(type(polygons))
 
     for polygon in polygons:
+        poly_ID = polygon[4]
         html = popup_html(polygon[0], polygon[1], polygon[3], polygon[4])
         popup1 = folium.Popup(folium.Html(html, script=True), max_width=500)
 
@@ -262,13 +271,20 @@ def treeTypeMap():  # put app's code here
         act_polygon = json.loads(polygon[1])
         pts_in_list = json.loads(polygon[2])  # get the points from the area in polygon
         print(pts_in_list)
+        # polydata(f"polygon{polygon[4]}", pts_in_list)
+        afforestation_filename = "jsons/polygon{0}.json".format(str(polygon[4]))
+        if poly_ID not in dict_ploygons.keys():
+            dict_ploygons[str(poly_ID)] = "jsons/polygon{0}.json".format(str(polygon[4]))
 
+        # afforestation_filename = "jsonpolygons.json"
         print(type(pts_in_list))
+        # list_of_id_pts_pairs.append({polygon[4]: pts_in_list})
+        # poly_data_dump(afforestation_filename)
         # polydata(f"polygon{polygons.index(polygon)}", pts_in_list) #attach data from pts list to specific polygon json file -- done
-        polydata(f"polygon{polygon[4]}.json", pts_in_list) # to rename the json files with the ids of the afforestations
+        polydata(f"polygon{polygon[4]}", pts_in_list)  # to rename the json files with the ids of the afforestations
         # afforestation_filename = "jsons/polygon{0}.json".format(str(polygons.index(polygon)))
-        afforestation_filename = "jsons/polygon{0}.json".format(str(polygon[4])) # to give the filename of the corresponding json file
-        print(afforestation_filename)
+         # to give the filename of the corresponding json file
+        # print(afforestation_filename)
         # with open(f"polygon{polygons.index(polygon)}", "w") as outfile_pts:
         #     json.dump(pts_in_list, outfile_pts)
         # print(polygons.index(polygon))
@@ -276,7 +292,7 @@ def treeTypeMap():  # put app's code here
         print(type(act_polygon))
         print(act_polygon)
         # act_polygon = polygon[1]
-        locations=list()
+        locations = list()
         print(act_polygon)
         print(type(act_polygon))
         # folium.Polygon(locations = polygon)
@@ -284,11 +300,11 @@ def treeTypeMap():  # put app's code here
             locations.append((locs['lat'], locs['lng']))
             # popup1 = folium.Popup(folium.Html(html, script=True), max_width=500)
         if datetime.strptime(polygon[0], '%Y-%m-%d') > datetime.combine(date.today(), datetime.min.time()):
-            poly = folium.Polygon(locations=locations, popup=popup1, color="red", weight=2, fill_color="red", fill_opacity=0.1)
+            poly = folium.Polygon(locations=locations, popup=popup1, color="red", weight=2, fill_color="red", fill_opacity=0.02, tooltip=polygon[4])
             poly.add_to(map_osm)
             polygons_list.append(poly)
         else:
-            poly = folium.Polygon(locations=locations, popup=popup1, color="green", weight=2, fill_color="green", fill_opacity=0.1)
+            poly = folium.Polygon(locations=locations, popup=popup1, color="green", weight=2, fill_color="green", fill_opacity=0.02, tooltip=polygon[4])
             poly.add_to(map_osm)
             polygons_list.append(poly)
 
@@ -296,84 +312,94 @@ def treeTypeMap():  # put app's code here
     if os.path.exists(filepath):
         os.remove(filepath)
         map_osm.save('templates/map.html')
-
+    # poly_data_dump(afforestation_filename)
     return map_osm._repr_html_()
-
-
-@app.route('/visstatus') # /visstatus/id
-def visualise_polygon():
-    print("shshshshsh")
-    print(afforestation_filename)
-    obj = pd.read_json(afforestation_filename)
-    print("shshshshsh")
-    dv = plt.pie(obj, names="TreeType")
-    return dv._repr_html_()
-
-
-@app.route('/visstatushealth')
-def visualise_polygon_health():
-    obj = pd.read_json(afforestation_filename)
-    dv = plt.histogram(obj, x="Burnt")
-    return dv._repr_html_()
-
-
-@app.route('/visstatussoil')
-def visualise_polygon_soil():
-    obj = pd.read_json(afforestation_filename)
-    dv = plt.pie(data_frame=obj.groupby(['SoilTexture']).mean().reset_index(), values="SoilDepth", names="SoilTexture")
-    return dv._repr_html_()
-
-
-@app.route('/visstatuselevation')
-def visualise_polygon_elevation():
-    obj = pd.read_json(afforestation_filename)
-    dv = plt.histogram(data_frame=obj.groupby(['Elevationlvl']).mean().reset_index(), x="Elevationlvl", y="Heightlvl")
-    dv.update_layout(showlegend=False)
-    return dv._repr_html_()
-
-
-@app.route('/visstatusweather')
-def visualise_polygon_weather():
-    obj = pd.read_json(afforestation_filename)
-    dv = plt.pie(data_frame=obj.groupby(['Rain']).mean().reset_index(), values="AvgRain", names="Rain")
-    return dv._repr_html_()
-
-
-@app.route('/visstatusslope')
-def visualise_polygon_slope():
-    obj = pd.read_json(afforestation_filename)
-    dv = plt.histogram(data_frame=obj.groupby(['Aspect']).mean().reset_index(), x="Aspect", y="Slope")
-    return dv._repr_html_()
-
-
-@app.route('/globalsoil')
-def visualise_soil():
-    dv = plt.pie(db_data_json_new, values="SoilDepth", names="SoilTexture")
-    return dv._repr_html_()
-
-
-@app.route('/globalelevation')
-def visualise_elevation():
-    dv = plt.histogram(db_data_json_new, x="Elevationlvl", y="Heightlvl")
-    return dv._repr_html_()
-
-
-@app.route('/globalweather')
-def visualise_weather():
-    dv = plt.pie(db_data_json_new, values="AvgRain", names="Rain")
-    return dv._repr_html_()
-
-
-@app.route('/globalslope')
-def visualise_slope():
-    dv = plt.histogram(db_data_json_new, x="Aspect", y="Slope")
-    return dv._repr_html_()
 
 
 def polydata(filename, file_src):
     with open(f"jsons/{filename}.json", "w") as outfile_pts:
             print(pts_in_list)
             json.dump(file_src, outfile_pts)
+
+
+@app.route('/visstatus') # /visstatus/id
+def visualise_polygon():
+    print(afforestation_filename)
+    file_name = dict_ploygons[poly_ID_selected]
+    obj = pd.read_json(file_name)
+    print("shshshshsh")
+    dv = plt.pie(obj, names="TreeType", title="Tree Types piechart")
+    return io.to_html(dv)
+
+
+@app.route('/visstatushealth')
+def visualise_polygon_health():
+    file_name=dict_ploygons[poly_ID_selected]
+    obj = pd.read_json(file_name)
+    dv = plt.histogram(obj, x="Score", color="Risk", histfunc="count", title="Tree health histogram")
+
+    return io.to_html(dv)
+
+
+@app.route('/visstatussoil')
+def visualise_polygon_soil():
+    obj = pd.read_json(dict_ploygons[poly_ID_selected_context])
+    dv = plt.pie(data_frame=obj.groupby(['SoilTexture']).mean().reset_index(), values="SoilDepth", names="SoilTexture", title="Soil Diversity Pie chart")
+    return io.to_html(dv)
+
+
+@app.route('/visstatuselevation')
+def visualise_polygon_elevation():
+    obj = pd.read_json(dict_ploygons[poly_ID_selected_context])
+    # dv = plt.histogram(data_frame=obj.groupby(['Elevationlvl']).mean().reset_index(), x="Elevationlvl", y="Heightlvl")
+    dv = plt.histogram(data_frame=obj, x="Height", histfunc="count", marginal="box", title="Elevation Histogram")
+
+
+    dv.update_layout(showlegend=False)
+    return io.to_html(dv)
+
+
+@app.route('/visstatusweather')
+def visualise_polygon_weather():
+    obj = pd.read_json(dict_ploygons[poly_ID_selected_context])
+    dv = plt.pie(data_frame=obj.groupby(['Rain']).mean().reset_index(), values="AvgRain", names="Rain", title="Average Rain Piechart")
+    return io.to_html(dv)
+
+
+@app.route('/visstatusslope')
+def visualise_polygon_slope():
+    obj = pd.read_json(dict_ploygons[poly_ID_selected_context])
+    # dv = plt.histogram(data_frame=obj.groupby(['Aspect']).mean().reset_index(), x="Aspect", y="Slope")
+    dv = plt.scatter_polar(obj, r="Slope", theta="Aspect",color_discrete_map=plt.colors.sequential.Plasma_r, color="Slope", title="Slope and Aspect Scatter Polar chart")
+
+    return io.to_html(dv)
+
+
+@app.route('/globalsoil')
+def visualise_soil():
+    dv = plt.pie(db_data_json_new, values="SoilDepth", names="SoilTexture", title="Soil Diversity Piechart")
+    return io.to_html(dv)
+
+
+@app.route('/globalelevation')
+def visualise_elevation():
+    dv = plt.histogram(db_data_json_new, x="Height", histfunc="count", marginal="box", title="Elevation histogram")
+    return io.to_html(dv)
+
+
+@app.route('/globalweather')
+def visualise_weather():
+    dv = plt.pie(db_data_json_new, values="AvgRain", names="Rain", title="Average Rain Pie chart")
+    return io.to_html(dv)
+
+
+@app.route('/globalslope')
+def visualise_slope():
+    dv = plt.scatter_polar(db_data_json_new, r="Slope", theta="Aspect",color_discrete_map=plt.colors.sequential.Plasma_r, color="Slope", title="Slope and Aspect Scatter Polar chart")
+    return io.to_html(dv)
+
+
+
 
 
 # def treeHealth():  # put app's code here
@@ -416,21 +442,21 @@ def trees_planted():
 
 @app.route('/vis')
 def dataVis():
-    dv = plt.pie(db_data_json_new, names="TreeType")
+    dv = plt.pie(db_data_json_new, names="TreeType", title="Tree Types piechart")
     return dv._repr_html_()
 
 
 @app.route('/visHealth')
 def dataVisHealth():
-    dh = plt.histogram(db_data_json_new, x="Burnt")
-    return dh._repr_html_()
-
-
-@app.route('/visSoil')
-def dataVisSoil():
-    dv = plt.pie(db_data_json_new, values="SoilDepth", names="SoilTexture")
-
+    dv = plt.histogram(db_data_json_new, x="Score", color="Risk", histfunc="count", title="Tree health histogram")
     return dv._repr_html_()
+
+
+# @app.route('/visSoil')
+# def dataVisSoil():
+#     dv = plt.pie(db_data_json_new, values="SoilDepth", names="SoilTexture")
+#
+#     return dv._repr_html_()
 
 
 dict_extrema = dict()
@@ -569,33 +595,33 @@ def get_afforestations():
     return data
 
 
-@app.route('/dvs')
-def specificDV():
+# @app.route('/dvs')
+# def specificDV():
+#
+#         # for index in range(0, len(li_intersect_point)):
+#         #     json.dump(li_intersect_point[index], outfile)
+#
+#     specific_data = pd.read_json("specific.json")
+#     new_data_visualisation = plt.pie(specific_data, values="Density", names="Vegetation") # error is somewhere here
+#     return new_data_visualisation._repr_html_()
+#
+# @app.route('/dvshealth')
+# def specificDVhealth():
+#
+#         # for index in range(0, len(li_intersect_point)):
+#         #     json.dump(li_intersect_point[index], outfile)
+#
+#     specific_data_health = pd.read_json("specific.json")
+#     # new_data_visualisation = plt.pie(specific_data, values="Density", names="Vegetation") # error is somewhere here
+#     new_data_visualisation = plt.histogram(specific_data_health, x="Burnt")
+#     return new_data_visualisation._repr_html_()
 
-        # for index in range(0, len(li_intersect_point)):
-        #     json.dump(li_intersect_point[index], outfile)
-
-    specific_data = pd.read_json("specific.json")
-    new_data_visualisation = plt.pie(specific_data, values="Density", names="Vegetation") # error is somewhere here
-    return new_data_visualisation._repr_html_()
-
-@app.route('/dvshealth')
-def specificDVhealth():
-
-        # for index in range(0, len(li_intersect_point)):
-        #     json.dump(li_intersect_point[index], outfile)
-
-    specific_data_health = pd.read_json("specific.json")
-    # new_data_visualisation = plt.pie(specific_data, values="Density", names="Vegetation") # error is somewhere here
-    new_data_visualisation = plt.histogram(specific_data_health, x="Burnt")
-    return new_data_visualisation._repr_html_()
-
-@app.route('/dvssoil')
-def specificDVsoil():
-
-    specific_data_soil = pd.read_json("specific.json")
-    new_data_visualisation = plt.pie(specific_data_soil, values="SoilDepth", names="SoilTexture")
-    return new_data_visualisation._repr_html_()
+# @app.route('/dvssoil')
+# def specificDVsoil():
+#
+#     specific_data_soil = pd.read_json("specific.json")
+#     new_data_visualisation = plt.pie(specific_data_soil, values="SoilDepth", names="SoilTexture")
+#     return new_data_visualisation._repr_html_()
 
 def popup_html(startDate, coordinates, endDate, id):
     # i = row
@@ -629,8 +655,8 @@ def popup_html(startDate, coordinates, endDate, id):
                     <td style="background-color: white"><span style="color: blue">"""+str(id)+"""</span></td>
                 </tr>
                 <tr>
-                    <a href="/statusSpecific" target="_top"><button>See Status</button></a>
-                    <a href="/contextSpecific" target="_top"><button>See Contextual Information</button></a>
+                    <a href="/statusSpecific/""" + str(id) + """" target="_top"><button>See Status</button></a>
+                    <a href="/contextSpecific/""" + str(id) + """" target="_top"><button>See Contextual Information</button></a>
                 </tr>
             </tbody>
         </table>

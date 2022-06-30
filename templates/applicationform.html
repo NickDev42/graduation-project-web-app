@@ -7,7 +7,8 @@
                 <form method="post">
                     <h2 style="color:white; text-align: center;">Afforestation Form</h2>
                     {{ form.hidden_tag() }}
-                    {{ form.coordinates.label }}<br><h3>Choose a polygon from the map</h3><br>
+                    {{ form.coordinates.label }}<br>
+                    <h3>Choose a polygon from the map</h3><h6 style="border: solid; border-color: #03fcec; border-radius:10px;">Click on the button in the top-right corner <br>of the map, draw a polygon by clicking at the points where<br>you want to place its edges </h6>
                     {{ form.startDate.label }}<br>{{ form.startDate }}<br>
                     {{ form.endDate.label }}<br>{{ form.endDate }}<br>
                     {{ form.organisation.label }}<br>{{ form.organisation }}

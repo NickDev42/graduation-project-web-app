@@ -6,6 +6,7 @@
                 <form method="post">
                     <h2 style="color:white; text-align: center;">Join Afforestation Form</h2>
 {#                    {{ form.hidden_tag() }}#}
+                    <h6 style="border: solid; border-color: #03fcec; border-radius: 10px;">Select an afforestation from the dropdown list below</h6>
                     <select name="afforestation">
                         {% for item in afforestation_list %}
                             <option value="{{ item[0] }}">{{ item }}</option>
