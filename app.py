@@ -126,7 +126,7 @@ def thankyou():
 
 
 
-@app.route('/')
+@app.route('/home')
 def fn():
     vis = dataVis()
 
@@ -438,18 +438,18 @@ trees_json_file = pd.read_json("treesplanted.json")
 @app.route('/treesplanted')
 def trees_planted():
     dv = plt.line(trees_json_file, x="Year", y="TreesPlanted", markers=True)
-    return dv._repr_html_()
+    return io.to_html(dv)
 
 @app.route('/vis')
 def dataVis():
     dv = plt.pie(db_data_json_new, names="TreeType", title="Tree Types piechart")
-    return dv._repr_html_()
+    return io.to_html(dv)
 
 
 @app.route('/visHealth')
 def dataVisHealth():
     dv = plt.histogram(db_data_json_new, x="Score", color="Risk", histfunc="count", title="Tree health histogram")
-    return dv._repr_html_()
+    return io.to_html(dv)
 
 
 # @app.route('/visSoil')
