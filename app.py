@@ -546,7 +546,7 @@ def form():
     map = treeTypeMap()
     form = AfforestationForm()
     if request.method == 'POST':
-        if form.validate_on_submit():
+        # if form.validate_on_submit():
             try:
                 # print(coordinates)
                 startDate = request.form['startDate']
