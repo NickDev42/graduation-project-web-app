@@ -260,6 +260,7 @@ global dict_ploygons
 dict_ploygons = dict()
 
 
+@app.route('/map')
 def treeTypeMap():  # put app's code here
     db_data_locations = db_data_json_new[["Latitude", "Longitude"]]
     db_data_locations_list = db_data_locations.values.tolist()
@@ -436,9 +437,9 @@ def visualise_slope():
 
 
 
-@app.route('/map')
-def map():
-    return render_template('map.html')
+# @app.route('/map')
+# def map():
+#     return render_template('map.html')
 
 
 @app.route('/maphealth')
@@ -545,7 +546,7 @@ def form():
     map = treeTypeMap()
     form = AfforestationForm()
     if request.method == 'POST':
-        # if form.validate_on_submit():
+        if form.validate_on_submit():
             try:
                 # print(coordinates)
                 startDate = request.form['startDate']
