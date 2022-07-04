@@ -25,8 +25,8 @@ import os
 # df_suburbs = pd.read_excel("C:\waterwatch_clean2.xlsx", sheet_name='Sheet1')
 # db_data = pd.read_csv("C:\\Users\Public\data.csv", delimiter=',')
 # db_data_json = pd.read_json("C:\\Users\Public\csvjson.json")
-db_data_parse = json.load(open("jsonmodified.json"))
-db_data_json_new = pd.read_json("jsonmodified.json")
+db_data_parse = json.load(open("modifiedjson.json"))
+db_data_json_new = pd.read_json("modifiedjson.json")
 measure_control = MeasureControl()
 
 basedir = os.path.abspath(os.path.dirname(__file__))
@@ -34,20 +34,21 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'mysecretkey'
-# app.config['SQLALCHEMY_DATABASE_URI'] = ' postgres://rkxtjqdykwwckc:d520ddc63215694388218b32a734557d2906fcc69b09c12471dcd212a62712d3@ec2-52-71-23-11.compute-1.amazonaws.com:5432/dddnbklebrv3sh'
-# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///'+os.path.join(basedir, 'data.sqlite')
-# app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-# db = SQLAlchemy(app)
 
 
 # Code Login Form: https://github.com/sathyainfotech/Login-Registration-SQLite.git
-con=sqlite3.connect("mydb.db")
+con = sqlite3.connect("mydb.db")
+con.execute("CREATE TABLE if not exists volunteer(afforestation INTEGER PRIMARY KEY, name TEXT, email TEXT)")
 con.execute("CREATE TABLE if not exists login(id INTEGER PRIMARY KEY, email TEXT, password TEXT, organisation TEXT)")
-con.execute("CREATE TABLE if not exists afforestation(id INTEGER PRIMARY KEY, coordinates BLOB, startDate DATE not null, endDate DATE not null, organisation TEXT not null)")
+con.execute("CREATE TABLE if not exists afforestation(id INTEGER PRIMARY KEY, coordinates BLOB, "
+            "startDate DATE not null, endDate DATE not null, organisation TEXT not null)")
 con.close()
+
+
 @app.route('/loginform')
 def loginform():
     return render_template("loginform.html")
+
 
 @app.route('/login', methods=["GET", "POST"])
 def login():
@@ -68,6 +69,7 @@ def login():
             flash("Email and Password incorrect", "danger")
     return redirect(url_for("loginform"))
 
+
 @app.route('/register', methods=["GET", "POST"])
 def register():
     if request.method == 'POST':
@@ -87,6 +89,7 @@ def register():
             con.close()
     return render_template("register.html")
 
+
 @app.route('/logout')
 def logout():
     session.clear()
@@ -96,6 +99,7 @@ def logout():
     else:
         pass
     return redirect(url_for("login"))
+
 
 @app.route('/user', methods=["GET", "POST"])
 def user():
@@ -118,12 +122,10 @@ class JoinForm(FlaskForm):
     submit = SubmitField('Submit')
 
 
-
 # here was afforestation form
 @app.route('/thankyou')
 def thankyou():
     return render_template('thankyou.html')
-
 
 
 @app.route('/home')
@@ -132,6 +134,7 @@ def fn():
     treeTypeMap()
     map = treeTypeMap()
     return render_template("index.html", map=map, visualisation=vis)
+
 
 @app.route('/contextinformation')
 def fn1():
@@ -148,14 +151,17 @@ def fn1():
 #     map = treeTypeMap()
 #     return render_template("soilType.html", map=map, visualisation=visSoil)
 
+
 @app.route('/statusafforestation')
 def fn3():
     map = treeTypeMap()
     treeTypeMap()
     return render_template("statusAfforestation.html", map=map)
 
+
 global poly_ID_selected
 global poly_ID_selected_context
+
 
 @app.route('/statusSpecific/<poly_id>')
 def fn4(poly_id):
@@ -164,6 +170,7 @@ def fn4(poly_id):
     global poly_ID_selected
     poly_ID_selected = poly_id
     return render_template("statusSpecific.html", map=map, id=poly_id)
+
 
 @app.route('/contextSpecific/<poly_id>')
 def fn5(poly_id):
@@ -194,7 +201,7 @@ def fn5(poly_id):
 #     return render_template("specificDataSoil.html", map=map, visualisation=specVis)
 
 lorem = "Pythom"
-map_osm = folium.Map(location=[35.000, 33.000], zoom_start=8)
+map_osm = folium.Map(location=[35.000, 33.000], zoom_start=9.5)
 # map_osm = Map(mapobj=folium.Map(location=[35.000, 33.000], zoom_start=8), measure_control=MeasureControl(), data_source=db_data_json_new)
 map_health = folium.Map(location=[35.000, 33.000], zoom_start=8)
 map_soil = folium.Map(location=[35.000, 33.000], zoom_start=8)
@@ -312,7 +319,6 @@ def treeTypeMap():  # put app's code here
             poly = folium.Polygon(locations=locations, popup=popup1, color="green", weight=2, fill_color="green", fill_opacity=0.02, tooltip=polygon[4])
             poly.add_to(map_osm)
             polygons_list.append(poly)
-
     filepath = "templates/map.html"
     if os.path.exists(filepath):
         os.remove(filepath)
@@ -339,7 +345,7 @@ def visualise_polygon():
 
 @app.route('/visstatushealth')
 def visualise_polygon_health():
-    file_name=dict_ploygons[poly_ID_selected]
+    file_name = dict_ploygons[poly_ID_selected]
     obj = pd.read_json(file_name)
     dv = plt.histogram(obj, x="Score", color="Risk", histfunc="count", title="Tree health histogram")
 
@@ -357,10 +363,10 @@ def visualise_polygon_soil():
 def visualise_polygon_elevation():
     obj = pd.read_json(dict_ploygons[poly_ID_selected_context])
     # dv = plt.histogram(data_frame=obj.groupby(['Elevationlvl']).mean().reset_index(), x="Elevationlvl", y="Heightlvl")
-    dv = plt.histogram(data_frame=obj, x="Height", histfunc="count", marginal="box", title="Elevation Histogram")
+    dv = plt.histogram(data_frame=obj, x="Height", histfunc="count", title="Elevation Histogram")
 
 
-    dv.update_layout(showlegend=False)
+    # dv.update_layout(showlegend=False)
     return io.to_html(dv)
 
 
@@ -388,7 +394,7 @@ def visualise_soil():
 
 @app.route('/globalelevation')
 def visualise_elevation():
-    dv = plt.histogram(db_data_json_new, x="Height", histfunc="count", marginal="box", title="Elevation histogram")
+    dv = plt.histogram(db_data_json_new, x="Height", histfunc="count", title="Elevation histogram")
     return io.to_html(dv)
 
 
@@ -444,6 +450,21 @@ trees_json_file = pd.read_json("treesplanted.json")
 def trees_planted():
     dv = plt.line(trees_json_file, x="Year", y="TreesPlanted", markers=True)
     return io.to_html(dv)
+
+
+# @app.route('/afforestations')
+# def afforestations_per_year():
+#     con = sqlite3.connect("mydb.db")
+#     cur = con.cursor()
+#     cur.execute("SELECT id, startDate FROM afforestation")
+#     details = cur.fetchall()
+#     with open("jsonafforestations.json", "w") as outfile:
+#         json.dump(details, outfile)
+#     dv = plt.box(pd.read_json("jsonafforestations.json"), x=1, y=0)
+#     con.close()
+#     return io.to_html(dv)
+
+
 
 @app.route('/vis')
 def dataVis():
@@ -551,43 +572,21 @@ def form():
                 # return redirect(url_for("form"))
                 print(e)
             finally:
-                return redirect(url_for('fn'))
+                return redirect(url_for('submit_afforestation'))
                 conn.close()
 
     return render_template('applicationform.html', form=form)
 
 
-@app.route('/joinform', methods=['GET', 'POST'])
-def join_form():
-    map = treeTypeMap()
-    form = JoinForm()
-    session["afforestation"] = get_afforestations()
-    if request.method == 'POST':
-        if form.validate_on_submit():
-            try:
-                # print(coordinates)
-
-                afforestation = request.form['afforestation']
-                name = request.form['name']
-                email = request.form['email']
-
-                # startDate = datetime.datetime.strptime(startDate, "%Y-%m-%d")
-                # endDate = datetime.datetime.strptime(endDate, "%Y-%m-%d")
-                conn = sqlite3.connect("mydb.db")
-                cur = conn.cursor()
-                cur.execute("CREATE TABLE if not exists volunteer(afforestation INTEGER PRIMARY KEY, name TEXT, email TEXT)")
-                cur.execute("INSERT INTO volunteer(afforestation, name, email) VALUES(?,?,?)",
-                            (afforestation, name, email))
-                conn.commit()
-            except Exception as e:
-                # time.sleep(5)
-                # return redirect(url_for("form"))
-                print(e)
-            finally:
-                return redirect(url_for('fn'))
-                conn.close()
-
-    return render_template('joinform.html', form=form, afforestation_list = session["afforestation"])
+@app.route('/thankyouafforestation', methods=["GET"])
+def submit_afforestation():
+    con = sqlite3.connect("mydb.db")
+    cur = con.cursor()
+    cur.execute("SELECT * FROM afforestation ORDER BY id DESC LIMIT 1 ")
+    details = cur.fetchone()
+    # print(details)
+    # print(type(details))
+    return render_template("thankyouafforestation.html", details=details)
 
 
 def get_afforestations():
@@ -598,6 +597,53 @@ def get_afforestations():
     # data = [(val[0], val[1]) for val in data]
     con.close()
     return data
+
+
+@app.route('/joinform', methods=['GET', 'POST'])
+def join_form():
+    map = treeTypeMap()
+    form = JoinForm()
+    session["afforestation"] = get_afforestations()
+    if request.method == 'POST':
+        # if form.validate_on_submit():
+            try:
+
+                # print(coordinates)
+
+                afforestation = request.form['afforestation']
+                name = request.form['name']
+                email = request.form['email']
+
+                # startDate = datetime.datetime.strptime(startDate, "%Y-%m-%d")
+                # endDate = datetime.datetime.strptime(endDate, "%Y-%m-%d")
+                conn = sqlite3.connect("mydb.db")
+                cur = conn.cursor()
+                print("try to insert")
+                cur.execute("INSERT INTO volunteer(afforestation, name, email) VALUES(?,?,?)",
+                            (afforestation, name, email))
+                conn.commit()
+                print("did it insert")
+            except Exception as e:
+                # time.sleep(5)
+                # return redirect(url_for("form"))
+                print(e)
+            finally:
+                return redirect(url_for('join_afforestation'))
+                conn.close()
+
+    return render_template('joinform.html', form=form, afforestation_list=session["afforestation"])
+
+
+@app.route('/thankyoujoin', methods=["GET"])
+def join_afforestation():
+    con = sqlite3.connect("mydb.db")
+    cur = con.cursor()
+    cur.execute("SELECT * FROM volunteer ORDER BY id DESC LIMIT 1 ")
+    details = cur.fetchone()
+    return render_template("thankyou.html", details=details)
+
+
+
 
 
 # @app.route('/dvs')
@@ -641,27 +687,27 @@ def popup_html(startDate, coordinates, endDate, id):
         <html>
         <center>
         <body>
-        <table style="height: 150px; width: 500px;">
+        <table style="height: 300px; width: 500px;">
             <tbody>
                 <tr>
-                    <td style="background-color: blue"><span style="color: white">StartDate</span></td>
-                    <td style="background-color: white"><span style="color: blue">"""+str(startDate)+"""</span></td>
+                    <td style="background-color: blue"><span style="color: white; font-size: 16px;"><strong>StartDate</strong></span></td>
+                    <td style="background-color: white"><span style="color: blue; font-size: 16px;"><strong>"""+str(startDate)+"""</strong></span></td>
                 </tr>
                 <tr>
-                    <td style="background-color: blue"><span style="color: white">EndDate</span></td>
-                    <td style="background-color: white"><span style="color: blue">"""+str(endDate)+"""</span></td>
+                    <td style="background-color: blue"><span style="color: white; font-size: 16px;">EndDate</span></td>
+                    <td style="background-color: white"><span style="color: blue; font-size: 16px;"><strong>"""+str(endDate)+"""</strong></span></td>
                 </tr>
                 <tr>
-                    <td style="background-color: blue"><span style="color: white">Coordinates</span></td>
-                    <td style="background-color: white"><span style="color: blue">"""+str(coordinates)+"""</span></td>
+                    <td style="background-color: blue"><span style="color: white; font-size: 16px;"><strong>Coordinates</strong></span></td>
+                    <td style="background-color: white"><span style="color: blue; font-size: 16px;">"""+str(coordinates)+"""</span></td>
                 </tr>
                 <tr>
-                    <td style="background-color: blue"><span style="color: white">ID</span></td>
-                    <td style="background-color: white"><span style="color: blue">"""+str(id)+"""</span></td>
+                    <td style="background-color: blue"><span style="color: white; font-size: 16px;"><strong>ID</strong></span></td>
+                    <td style="background-color: white"><span style="color: blue; font-size: 16px;"><strong>"""+str(id)+"""</strong></span></td>
                 </tr>
                 <tr>
-                    <a href="/statusSpecific/""" + str(id) + """" target="_top"><button>See Status</button></a>
-                    <a href="/contextSpecific/""" + str(id) + """" target="_top"><button>See Contextual Information</button></a>
+                    <a href="/statusSpecific/""" + str(id) + """" target="_top"><button style="font-size: 14px;"><strong>See Status of Afforestation</strong></button></a>
+                    <a href="/contextSpecific/""" + str(id) + """" target="_top"><button style="font-size: 14px;"><strong>See Contextual Information of Afforestation</strong></button></a>
                 </tr>
             </tbody>
         </table>

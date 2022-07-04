@@ -1,4 +1,9 @@
 {% extends "index.html" %}
+{% block header %}
+        <div class="col-12 col-md-8">
+            <h1 style="text-align: center">Contextual Information about Afforestation No. {{ id }}</h1>
+        </div>
+        {% endblock %}
 {% block content %}
 <div class="col mx-auto">
                 <h2 style="color:white; text-align: center;">Map</h2>
@@ -7,6 +12,7 @@
             </div>
     <div class="col">
         <div class="row">
+
             <div class="col">
                 <iframe src="/visstatussoil" width="400px" height="300px"></iframe>
             </div>

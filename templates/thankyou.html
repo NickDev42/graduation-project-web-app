@@ -1,17 +1,29 @@
 {% extends "index.html" %}
+{% block header %}
+        <div class="col-12 col-md-8">
+            <h1 style="text-align: center">Confirmation of Application</h1>
+        </div>
+        {% endblock %}
 
 {% block content %}
-    <div class="leftdiv">
-            <h2 style="color:white; text-align: center;">Map</h2>
-            <iframe src="/map" width="900px", height="500px"></iframe>
-        </div>
-        <div class="rightdiv" >
-            <h2 style="color:white; text-align: center;">Thank you for submitting the form</h2>
-            <ul>
-                <li>Location: {{ session['location'] }}</li>
-                <li>Start date: {{ session['startDate'] }}</li>
-                <li>End date: {{ session['endDate'] }}</li>
-            </ul>
-        </div>
 
+<div class="col mx-auto">
+    <h2 style="color:white; text-align: center;">Map</h2>
+    <iframe src="/map" width="800px" height="500px"></iframe>
+</div>
+    <div class="col">
+
+        <div class="row">
+            <div class="col">
+                <h3>Thank you for submitting form to join afforestation</h3>
+                <ul>
+                    <li><h4 style="border: solid; border-color: #03fcec; border-radius:10px;">Afforestation ID: {{ details[0] }}</h4></li>
+                    <li><h4 style="border: solid; border-color: #03fcec; border-radius:10px;">Your name: {{ details[1] }}</h4></li>
+                    <li><h4 style="border: solid; border-color: #03fcec; border-radius:10px;">Your email: {{ details[2] }}</h4></li>
+                    <li><h4 style="border: solid; border-color: #03fcec; border-radius:10px;">Your Identification Number: {{ details[3] }}</h4></li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
 {% endblock %}

@@ -86,9 +86,11 @@
 
     </div>
     <div class="row mx-auto" style="width: 90%">
+        {% block header %}
         <div class="col-12 col-md-8">
             <h1 style="text-align: center">Home Page</h1>
         </div>
+        {% endblock %}
         <div class="col-6 col-md-4">
             <button class="btn btn-info btn-lg"><a href="{{ url_for('login') }}">Login</a></button>
             <button class="btn btn-info btn-lg"><a href="{{ url_for('logout') }}">Logout</a></button>
@@ -118,6 +120,7 @@
                     <div class="col">
 {#                    <iframe src="/healthservice" width="500px" height="300px"></iframe>#}
                         <iframe src="/news" width="500px" height="300px"></iframe>
+{#                        <iframe src="/afforestations" width="500px" height="300px"></iframe>#}
                     </div>
                 </div>
             </div>
@@ -129,7 +132,7 @@
         <br>
     </div>
     <div >
-        <nav class="navbar fixed-bottom navbar-light bg-dark nav nav-pills flex-column" style="height: 150px">
+        <nav class="navbar fixed-bottom navbar-light bg-dark nav nav-pills flex-column">
             <ul class="nav justify-content-center">
 {#                <button class="button"><a href="{{ url_for('fn') }}"><li>Vegetation Diversity</li></a></button>#}
 {#                <button><a href="{{ url_for('fn1') }}"><li>Tree Health</li></a></button>#}
@@ -138,15 +141,17 @@
                 <a href="{{ url_for('fn') }}" class="flex-sm-fill text-sm-center nav-link"><li class="nav-item"><button class="btn btn-info btn-lg">Home</button></li></a>
                 <a href="{{ url_for('fn3') }}" class="flex-sm-fill text-sm-center nav-link"><li class="nav-item"><button class="btn btn-info btn-lg">Status Afforestation</button></li></a>
                 <a href="{{ url_for('fn1') }}" class="flex-sm-fill text-sm-center nav-link"><li class="nav-item"><button class="btn btn-info btn-lg">Contextual Information</button></li></a></button>
-{#                <a href="{{ url_for('fn2') }}" class="flex-sm-fill text-sm-center nav-link"><li class="nav-item"><button class="btn btn-info btn-lg">Soil Type</button></li></a>#}
+                <a href="{{ url_for('form') }}" class="flex-sm-fill text-sm-center nav-link"><li class="nav-item"><button class="btn btn-info btn-lg">Initiate Afforestation</button></li></a>
+                <a href="{{ url_for('join_form') }}" class="flex-sm-fill text-sm-center nav-link"><li class="nav-item"><button class="btn btn-info btn-lg">Join Afforestation</button></li></a>
+                {#                <a href="{{ url_for('fn2') }}" class="flex-sm-fill text-sm-center nav-link"><li class="nav-item"><button class="btn btn-info btn-lg">Soil Type</button></li></a>#}
 {#                <a href="{{ url_for('form') }}" class="flex-sm-fill text-sm-center nav-link"><li class="nav-item"><button class="btn btn-info btn-lg">Application Form</button></li></a>#}
-                <li class="nav-item dropdown btn btn-info btn-lg">
-                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="true">Afforestation Forms</a>
-                    <ul class="dropdown-menu">
-                        <li class="dropdown-item"><a href="{{ url_for('form') }}">Afforestation Application</a></li>
-                        <li><a class="dropdown-item" href="{{ url_for('join_form') }}">Afforestation Join Form</a></li>
-                    </ul>
-                </li>
+{#                <li class="nav-item dropdown btn btn-info btn-lg" >#}
+{#                    <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="true" style="bottom: 100%">Afforestation Forms</a>#}
+{#                    <ul class="dropdown-menu">#}
+{#                        <li class="dropdown-item"><a href="{{ url_for('form') }}">Application for afforestation</a></li>#}
+{#                        <li class="dropdown-item"><a href="{{ url_for('join_form') }}">Join Afforestation Form</a></li>#}
+{#                    </ul>#}
+{#                </li>#}
             </ul>
         </nav>
     </div>
