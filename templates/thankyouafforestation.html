@@ -1,0 +1,30 @@
+{% extends "index.html" %}
+{% block header %}
+        <div class="col-12 col-md-8">
+            <h1 style="text-align: center">Confirmation of Application</h1>
+        </div>
+        {% endblock %}
+
+{% block content %}
+
+<div class="col mx-auto">
+    <h2 style="color:white; text-align: center;">Map</h2>
+    <iframe src="/map" width="800px" height="500px"></iframe>
+</div>
+    <div class="col">
+
+        <div class="row">
+            <div class="col">
+                <h3>Thank you for submitting form to join afforestation</h3>
+                <ul>
+                    <li><h4 style="border: solid; border-color: #03fcec; border-radius:10px;">Afforestation ID: {{ details[0] }}</h4></li>
+                    <li><h4 style="border: solid; border-color: #03fcec; border-radius:10px;">Coordinates: {{ details[1] }}</h4></li>
+                    <li><h4 style="border: solid; border-color: #03fcec; border-radius:10px;">Start Date: {{ details[2] }}</h4></li>
+                    <li><h4 style="border: solid; border-color: #03fcec; border-radius:10px;">End Date: {{ details[3] }}</h4></li>
+                    <li><h4 style="border: solid; border-color: #03fcec; border-radius:10px;">Organisation: {{ details[4] }}</h4></li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}

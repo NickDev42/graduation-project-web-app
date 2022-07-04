@@ -572,8 +572,9 @@ def form():
                 # return redirect(url_for("form"))
                 print(e)
             finally:
-                return redirect(url_for('submit_afforestation'))
                 conn.close()
+                return redirect(url_for('submit_afforestation'))
+
 
     return render_template('applicationform.html', form=form)
 
