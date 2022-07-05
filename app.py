@@ -19,6 +19,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager, UserMixin, login_required, login_user, logout_user, current_user, login_manager
 from plotly import io
 import os
+import re
 # import seaborn as sns
 # import dash
 # import matplotlib.pyplot as plt
@@ -85,7 +86,7 @@ def register():
         except:
             flash("Registration unsuccessful", "danger")
         finally:
-            return redirect(url_for("user"))
+            return redirect(url_for("fn"))
             con.close()
     return render_template("register.html")
 
@@ -545,7 +546,7 @@ def measureFinish():
 def form():
     map = treeTypeMap()
     form = AfforestationForm()
-    if request.method == 'POST':
+    if request.method == 'POST' and form.validate_on_submit():
         # if form.validate_on_submit():
             try:
                 # print(coordinates)
@@ -601,6 +602,9 @@ def get_afforestations():
     return data
 
 
+regex = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b'
+
+
 @app.route('/joinform', methods=['GET', 'POST'])
 def join_form():
     map = treeTypeMap()
@@ -621,19 +625,29 @@ def join_form():
                 conn = sqlite3.connect("mydb.db")
                 cur = conn.cursor()
                 print("try to insert")
-                cur.execute("INSERT INTO volunteer(afforestation, name, email) VALUES(?,?,?)",
+                if re.fullmatch(regex, email):
+                    cur.execute("INSERT INTO volunteer(afforestation, name, email) VALUES(?,?,?)",
                             (afforestation, name, email))
-                conn.commit()
-                print("did it insert")
+                    conn.commit()
+                    print("did it insert")
+                    return redirect(url_for('join_afforestation'))
+                else:
+                    return render_template('joinform.html', form=form, afforestation_list=session["afforestation"], message="Wrong email format")
+
             except Exception as e:
                 # time.sleep(5)
                 # return redirect(url_for("form"))
                 print(e)
             finally:
-                return redirect(url_for('join_afforestation'))
+                if re.fullmatch(regex, email):
+                    return redirect(url_for('join_afforestation'))
+                else:
+                    return render_template('joinform.html', form=form, afforestation_list=session["afforestation"], message="Wrong email format")
+
+
                 conn.close()
 
-    return render_template('joinform.html', form=form, afforestation_list=session["afforestation"])
+    return render_template('joinform.html', form=form, afforestation_list=session["afforestation"], message="")
 
 
 @app.route('/thankyoujoin', methods=["GET"])

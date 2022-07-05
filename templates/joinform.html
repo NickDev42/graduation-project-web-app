@@ -19,10 +19,11 @@
                     <h6 style="border: solid; border-color: #03fcec; border-radius: 10px;">Select an afforestation from the dropdown list below</h6>
                     <select name="afforestation">
                         {% for item in afforestation_list %}
-                            <option value="{{ item[0] }}">{{ item[0] }}</option>
+                            <option value="{{ item[0] }}">{{ item }}</option>
                         {% endfor %}
                     </select><br>
 {#                    {{ form.coordinates.label }}<br><h3>Choose a polygon from the map</h3><br>#}
+                    <h3>{{ message }}</h3>
                     {{ form.name.label }}<br>{{ form.name }}<br>
                     {{ form.email.label }}<br>{{ form.email }}<br>
                     {{ form.submit() }}
