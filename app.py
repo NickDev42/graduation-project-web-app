@@ -572,6 +572,7 @@ def form():
                     cur.execute("INSERT INTO afforestation(coordinates, startDate, endDate, organisation, points) VALUES(?,?,?,?,?)",
                             (json.dumps(ar_points), startDate, endDate, organisation, json.dumps(li_intersect_point)))
                     conn.commit()
+                    return redirect(url_for('submit_afforestation'))
                 else:
                     return render_template('applicationform.html', form=form, message="Invalid Input")
             # except Exception as e:
