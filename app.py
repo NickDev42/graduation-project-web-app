@@ -546,7 +546,8 @@ def measureFinish():
 def form():
     map = treeTypeMap()
     form = AfforestationForm()
-    if request.method == 'POST' and form.validate_on_submit():
+    if request.method == 'POST':
+            conn = sqlite3.connect("mydb.db")
         # if form.validate_on_submit():
             try:
                 # print(coordinates)
@@ -561,24 +562,32 @@ def form():
                     o_point["lat"] = point["lat"]
                     o_point["lng"] = point["lng"]
                     ar_points.append(o_point)
+                if datetime.strptime(endDate, '%Y-%m-%d') > datetime.strptime(startDate, '%Y-%m-%d') >= \
+                        datetime.now() and organisation != "" and len(ar_points) > 2:
 
-                # startDate = datetime.datetime.strptime(startDate, "%Y-%m-%d")
-                # endDate = datetime.datetime.strptime(endDate, "%Y-%m-%d")
-                conn = sqlite3.connect("mydb.db")
-                cur = conn.cursor()
-                cur.execute("INSERT INTO afforestation(coordinates, startDate, endDate, organisation, points) VALUES(?,?,?,?,?)",
+                    # startDate = datetime.datetime.strptime(startDate, "%Y-%m-%d")
+                    # endDate = datetime.datetime.strptime(endDate, "%Y-%m-%d")
+                    # conn = sqlite3.connect("mydb.db")
+                    cur = conn.cursor()
+                    cur.execute("INSERT INTO afforestation(coordinates, startDate, endDate, organisation, points) VALUES(?,?,?,?,?)",
                             (json.dumps(ar_points), startDate, endDate, organisation, json.dumps(li_intersect_point)))
-                conn.commit()
+                    conn.commit()
+                else:
+                    return render_template('applicationform.html', form=form, message="Invalid Input")
             except Exception as e:
                 # time.sleep(5)
                 # return redirect(url_for("form"))
                 print(e)
             finally:
+                if datetime.strptime(endDate, '%Y-%m-%d') > datetime.strptime(startDate, '%Y-%m-%d') >= \
+                        datetime.now() and organisation != "" and len(ar_points) > 2:
+                    return redirect(url_for('submit_afforestation'))
+                else:
+                    return render_template('applicationform.html', form=form, message="Invalid input")
+
                 conn.close()
-                return redirect(url_for('submit_afforestation'))
 
-
-    return render_template('applicationform.html', form=form)
+    return render_template('applicationform.html', form=form, message="")
 
 
 @app.route('/thankyouafforestation', methods=["GET"])
@@ -601,7 +610,7 @@ def get_afforestations():
     con.close()
     return data
 
-
+# string for ensuring email is in correct format
 regex = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b'
 
 
@@ -612,7 +621,6 @@ def join_form():
     session["afforestation"] = get_afforestations()
     if request.method == 'POST':
         # if form.validate_on_submit():
-            try:
 
                 # print(coordinates)
 
@@ -625,7 +633,7 @@ def join_form():
                 conn = sqlite3.connect("mydb.db")
                 cur = conn.cursor()
                 print("try to insert")
-                if re.fullmatch(regex, email):
+                if re.fullmatch(regex, email) and name != "":
                     cur.execute("INSERT INTO volunteer(afforestation, name, email) VALUES(?,?,?)",
                             (afforestation, name, email))
                     conn.commit()
@@ -634,18 +642,6 @@ def join_form():
                 else:
                     return render_template('joinform.html', form=form, afforestation_list=session["afforestation"], message="Wrong email format")
 
-            except Exception as e:
-                # time.sleep(5)
-                # return redirect(url_for("form"))
-                print(e)
-            finally:
-                if re.fullmatch(regex, email):
-                    return redirect(url_for('join_afforestation'))
-                else:
-                    return render_template('joinform.html', form=form, afforestation_list=session["afforestation"], message="Wrong email format")
-
-
-                conn.close()
 
     return render_template('joinform.html', form=form, afforestation_list=session["afforestation"], message="")
 
