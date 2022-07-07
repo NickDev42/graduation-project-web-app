@@ -547,9 +547,9 @@ def form():
     map = treeTypeMap()
     form = AfforestationForm()
     if request.method == 'POST':
-            conn = sqlite3.connect("mydb.db")
+                conn = sqlite3.connect("mydb.db")
         # if form.validate_on_submit():
-            try:
+        #     try:
                 # print(coordinates)
                 startDate = request.form['startDate']
                 endDate = request.form['endDate']
@@ -574,17 +574,17 @@ def form():
                     conn.commit()
                 else:
                     return render_template('applicationform.html', form=form, message="Invalid Input")
-            except Exception as e:
-                # time.sleep(5)
-                # return redirect(url_for("form"))
-                print(e)
-            finally:
-                if datetime.strptime(endDate, '%Y-%m-%d') > datetime.strptime(startDate, '%Y-%m-%d') >= \
-                        datetime.now() and organisation != "" and len(ar_points) > 2:
-                    return redirect(url_for('submit_afforestation'))
-                else:
-                    return render_template('applicationform.html', form=form, message="Invalid input")
-
+            # except Exception as e:
+            #     # time.sleep(5)
+            #     # return redirect(url_for("form"))
+            #     print(e)
+            # finally:
+            #     if datetime.strptime(endDate, '%Y-%m-%d') > datetime.strptime(startDate, '%Y-%m-%d') >= \
+            #             datetime.now() and organisation != "" and len(ar_points) > 2:
+            #         return redirect(url_for('submit_afforestation'))
+            #     else:
+            #         return render_template('applicationform.html', form=form, message="Invalid input")
+            #
                 conn.close()
 
     return render_template('applicationform.html', form=form, message="")
